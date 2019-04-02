@@ -27,21 +27,25 @@ class FormContainer extends Component {
         </div>
         <div>
           <h3>Most helpful positive reviews</h3>
+          <br></br>
           <div>
             <table>
               <tr><td>
-                <h4>Great Shirt</h4>
-                <div>(Would Recommend)</div>
+                <h4>Great Shirt</h4> {/*Customer Review Header*/}
+                <div>(Would Recommend)</div> {/*If greater than or equal to 3 star review*/}
                 <span>
+                  {/*Customer review star rating*/}
                 <StarRatings
-                  rating={4}
+                  rating={4} 
                   starDimension="12px"
                   starSpacing="0px"
                   starRatedColor="gold"
                 />
+                {/*Customer Username and timestamp from post date*/}
                 username - 1 year ago
                 </span>
                 <br></br>
+                {/*Customer review body*/}
                 <span>Love this shirt. The material has a nice feel to it, and isn't overly thin. My husband wears a medium shirt and prefers the slim fit style, but unfortunately the medium in this brand did not work for him. While it fit in the torso area, it was too snug in the shoulder and arm area. If you're purchasing this for someone that is a little more muscular, I would recommend having them try it on first in case you need to go up a size.</span>
               </td>
               <td>
@@ -59,6 +63,7 @@ class FormContainer extends Component {
                 <br></br>
                 <span>Love this shirt. The material has a nice feel to it, and isn't overly thin. My husband wears a medium shirt and prefers the slim fit style, but unfortunately the medium in this brand did not work for him. While it fit in the torso area, it was too snug in the shoulder and arm area. If you're purchasing this for someone that is a little more muscular, I would recommend having them try it on first in case you need to go up a size.</span>
               </td></tr>
+              <br></br>
               <tr><td>
                 <h4>Great Shirt</h4>
                 <div>(Would Recommend)</div>
@@ -72,7 +77,7 @@ class FormContainer extends Component {
                 username - 1 year ago
                 </span>
                 <br></br>
-                <span>True to size and decent quality. Could be cheaper though.</span>
+                <span>Love this shirt. The material has a nice feel to it, and isn't overly thin. My husband wears a medium shirt and prefers the slim fit style, but unfortunately the medium in this brand did not work for him. While it fit in the torso area, it was too snug in the shoulder and arm area. If you're purchasing this for someone that is a little more muscular, I would recommend having them try it on first in case you need to go up a size.</span>
               </td>
               <td>
                 <h4>Great Shirt</h4>
@@ -95,6 +100,7 @@ class FormContainer extends Component {
         <br></br>
         <div>
           <h3>Most recent reviews</h3>
+          <br></br>
           <div>
             <table>
               <tr><td>
@@ -126,6 +132,7 @@ class FormContainer extends Component {
                 <br></br>
                 <span>Love this shirt. The material has a nice feel to it, and isn't overly thin. My husband wears a medium shirt and prefers the slim fit style, but unfortunately the medium in this brand did not work for him. While it fit in the torso area, it was too snug in the shoulder and arm area. If you're purchasing this for someone that is a little more muscular, I would recommend having them try it on first in case you need to go up a size.</span>
               </td></tr>
+              <br></br>
               <tr><td>
                 <h4>Great Shirt</h4>
                 <div>(Would Recommend)</div>
