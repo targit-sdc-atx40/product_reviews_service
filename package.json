@@ -13,6 +13,7 @@
     "start": "nodemon server/server.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "faker": "^4.1.0"
   },
   "devDependencies": {

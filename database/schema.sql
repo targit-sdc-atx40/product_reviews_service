@@ -5,11 +5,11 @@ CREATE DATABASE product_info;
 \c product_info;
 
 CREATE TABLE products (
-sku SERIAL PRIMARY KEY,
-title VARCHAR(100) NOT NULL,
-photo_url VARCHAR(200) NOT NULL,
-price MONEY NOT NULL,
-description TEXT NOT NULL
+  sku SERIAL PRIMARY KEY,
+  title VARCHAR(100) NOT NULL,
+  photo_url VARCHAR(200) NOT NULL,
+  price MONEY NOT NULL,
+  description TEXT NOT NULL
 );
 
 CREATE TABLE reviews (

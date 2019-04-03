@@ -1,14 +1,51 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import StarRatings from "react-star-ratings";
+import axios from "axios";
 
 class FormContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-     
+      helpful: [
+        {header: '', stars: '', post_date: '', body: '', username: ''},
+        {header: '', stars: '', post_date: '', body: '', username: ''},
+        {header: '', stars: '', post_date: '', body: '', username: ''},
+        {header: '', stars: '', post_date: '', body: '', username: ''}
+      ],
+      recent: [
+        {header: '', stars: '', post_date: '', body: '', username: ''},
+        {header: '', stars: '', post_date: '', body: '', username: ''},
+        {header: '', stars: '', post_date: '', body: '', username: ''},
+        {header: '', stars: '', post_date: '', body: '', username: ''}
+      ]
     };
-  
+  }
+
+  componentDidMount() {
+    axios.get('/product/reviews/recent' )
+      .then(res => {
+        console.log(res.data);
+        let recentData = res.data;
+        this.setState({
+          recent: recentData
+        })
+      })
+      .catch(err => {
+        console.error(err);
+      })
+
+    axios.get('/product/reviews/helpful')
+      .then(res => {
+        console.log(res.data);
+        let helpfulData = res.data;
+        this.setState({
+          helpful: helpfulData
+        }) 
+      })
+      .catch(err => {
+        console.error(err);
+      })
   }
 
   render() {
@@ -170,7 +207,7 @@ class FormContainer extends Component {
   }
 }
 
-const wrapper = document.getElementById("create-article-form");
+const wrapper = document.getElementById("app");
 wrapper ? ReactDOM.render(<FormContainer />, wrapper) : false;
 
 export default FormContainer;
