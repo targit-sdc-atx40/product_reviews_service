@@ -5,7 +5,7 @@ CREATE DATABASE product_info;
 \c product_info;
 
 CREATE TABLE products (
-sku SERIAL,
+sku SERIAL PRIMARY KEY,
 title VARCHAR(100) NOT NULL,
 photo_url VARCHAR(200) NOT NULL,
 price MONEY NOT NULL,
@@ -13,11 +13,12 @@ description TEXT NOT NULL
 );
 
 CREATE TABLE reviews (
+  review_num SERIAL PRIMARY KEY,
   header VARCHAR(100) NOT NULL, 
   stars INTEGER NOT NULL, 
   post_date TIMESTAMP NOT NULL, 
   username VARCHAR(50) NOT NULL, 
-  body VARCHAR(250) NOT NULL, 
+  body VARCHAR(500) NOT NULL, 
   sku_ID INTEGER REFERENCES products(sku)
 );
 
@@ -622,4 +623,4 @@ INSERT INTO reviews (header, stars, post_date, username, body, sku_ID) VALUES ('
 INSERT INTO reviews (header, stars, post_date, username, body, sku_ID) VALUES ('facere maiores repudiandae', 2, '2017-06-16T10:21:26.979Z', 'Ian.Wilkinson', 'Illum et ut ea est. Suscipit repellendus aut non aut qui est in. Velit maxime cum sint. Omnis doloribus dolores enim vitae impedit.', 92);
 INSERT INTO reviews (header, stars, post_date, username, body, sku_ID) VALUES ('eos sint dolore', 4, '2016-04-19T18:36:40.928Z', 'Corbin_Rohan20', 'Qui doloribus voluptas unde et consequatur illo earum incidunt magnam. Occaecati consequatur nisi. Ullam blanditiis beatae esse beatae officia quasi et quas.', 2);
 INSERT INTO reviews (header, stars, post_date, username, body, sku_ID) VALUES ('dolorem hic perspiciatis', 5, '2016-01-01T01:57:53.728Z', 'Jacynthe4', 'Minus explicabo occaecati voluptas rerum dolores. Omnis aliquam suscipit quo temporibus. Qui repudiandae quibusdam et placeat corrupti deserunt quibusdam. Voluptas doloribus debitis. A quod reiciendis ut commodi voluptas voluptas ipsum.', 52);
-INSERT INTO reviews (header, stars, post_date, username, body, sku_ID) VALUES ('aut velit iste', 2, '2016-08-13T11:58:31.220Z', 'Darrick.Hettinger36', 'Alias repellat eos et blanditiis et nihil rem. Laborum excepturi et tenetur dicta fugiat. Expedita quod ipsam. Pariatur et alias. At corporis sit reiciendis ut molestiae.', 3)"
+INSERT INTO reviews (header, stars, post_date, username, body, sku_ID) VALUES ('aut velit iste', 2, '2016-08-13T11:58:31.220Z', 'Darrick.Hettinger36', 'Alias repellat eos et blanditiis et nihil rem. Laborum excepturi et tenetur dicta fugiat. Expedita quod ipsam. Pariatur et alias. At corporis sit reiciendis ut molestiae.', 3);

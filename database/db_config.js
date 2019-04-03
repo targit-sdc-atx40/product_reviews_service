@@ -12,24 +12,20 @@ client.connect((err) => {
 });
 
 const helpful = (req, res) => {
-  client.query('SELECT TOP 4 * FROM reviews ORDER BY reviews.stars DESC INNER JOIN products ON products.sku = reviews.sku_ID', (err, results) => {
+  client.query('SELECT * FROM reviews ORDER BY reviews.stars DESC LIMIT 4', (err, results) => {
     if (err) {
       console.error(err);
     }
-    else {
-      res.send(200).json(results.rows);
-    }
+    res.status(200).json(results.rows);
   });
 };
 
 const recent = (req, res) => {
-  client.query('SELECT TOP 4 * FROM reviews ORDER BY reviews.post_date DESC INNER JOIN products ON products.sku = reviews.sku_ID', (err, result) => {
+  client.query('SELECT * FROM reviews ORDER BY reviews.post_date DESC LIMIT 4', (err, result) => {
     if (err) {
       console.error(err);
     }
-    else {
-      res.send(200).json(result.rows);
-    }
+    res.status(200).json(result.rows);
   });
 };
 
