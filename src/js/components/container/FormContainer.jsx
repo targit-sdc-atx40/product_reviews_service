@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import StarRatings from "react-star-ratings";
 import axios from "axios";
 
-
 class FormContainer extends Component {
   constructor(props) {
     super(props);
@@ -65,7 +64,6 @@ class FormContainer extends Component {
         </div>
         <div>
           <h3>Most helpful positive reviews</h3>
-          <br></br>
           <div>
             <table>
               <tr><td>
@@ -135,7 +133,6 @@ class FormContainer extends Component {
         <br></br>
         <div>
           <h3>Most recent reviews</h3>
-          <br></br>
           <div>
             <table>
               <tr><td>
