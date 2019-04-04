@@ -53,7 +53,7 @@ class FormContainer extends Component {
       <div>
         <div>
           <center>
-            <h2>Ratings &amp; reviews</h2>
+            <h2>Ratings &amp; reviews <u>{(this.state.helpful.length + this.state.recent.length)}</u></h2>
             <StarRatings
               rating={4.5}
               starDimension="24px"
