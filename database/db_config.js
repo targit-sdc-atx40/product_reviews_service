@@ -11,22 +11,35 @@ client.connect((err) => {
   }
 });
 
-const helpful = (req, res) => {
-  client.query('SELECT * FROM reviews ORDER BY reviews.stars DESC LIMIT 4', (err, results) => {
+const helpfulReviews = (sku, callback) => {
+  setTimeout(() => {console.log('herererere' ,sku)}, 2000)
+  client.query(`SELECT * FROM reviews WHERE sku_ID = ${sku} ORDER BY reviews.stars DESC LIMIT 4`, (err, results) => {
     if (err) {
       console.error(err);
+    } else {
+      callback(null, results)
     }
-    res.status(200).json(results.rows);
   });
 };
 
-const recent = (req, res) => {
-  client.query('SELECT * FROM reviews ORDER BY reviews.post_date DESC LIMIT 4', (err, result) => {
+const recentReviews = (sku, callback) => {
+  client.query(`SELECT * FROM reviews WHERE sku_ID = ${sku} ORDER BY reviews.post_date DESC LIMIT 4`, (err, result) => {
     if (err) {
       console.error(err);
+    } else {
+      callback(null, result)
     }
-    res.status(200).json(result.rows);
   });
 };
 
-module.exports = {client, recent, helpful};
+const allReviews = (sku, callback) => {
+  client.query(`SELECT * FROM reviews WHERE sku_ID = ${sku}`, (err, result) => {
+    if (err) {
+      console.error(err);
+    } else {
+      callback(null, result);
+    }
+  })
+}
+
+module.exports = {client, recentReviews, helpfulReviews, allReviews};

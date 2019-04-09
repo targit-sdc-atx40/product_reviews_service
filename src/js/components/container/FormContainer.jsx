@@ -18,30 +18,84 @@ class FormContainer extends Component {
         {header: '', stars: '', post_date: '', body: '', username: ''},
         {header: '', stars: '', post_date: '', body: '', username: ''},
         {header: '', stars: '', post_date: '', body: '', username: ''}
-      ]
+      ], 
+      totalReviews: [],
+      totalRating: 0, 
+      helpfulRating1: 0, 
+      helpfulRating2: 0, 
+      helpfulRating3: 0, 
+      helpfulRating4: 0, 
+      recentRating1: 0, 
+      recentRating2: 0,
+      recentRating3: 0,
+      recentRating4: 0
     };
   }
 
   componentDidMount() {
-    axios.get('/product/reviews/recent' )
+    this.updateCurrentReviews();
+  }
+
+  updateCurrentReviews() {
+    let sku = window.State || Math.floor(Math.random() * 100) + 1;
+    axios.get('http://localhost:3002/product/reviews/recent', {
+      params: {
+        sku: sku
+      }
+    })
       .then(res => {
         console.log(res.data);
         let recentData = res.data;
         this.setState({
-          recent: recentData
+          recent: recentData,
+          recentRating1: (recentData[0] ? recentData[0].stars : 0), 
+          recentRating2: (recentData[1] ? recentData[1].stars : 0),
+          recentRating3: (recentData[2] ? recentData[2].stars : 0),
+          recentRating4: (recentData[3] ? recentData[3].stars : 0)
         })
       })
       .catch(err => {
         console.error(err);
       })
 
-    axios.get('/product/reviews/helpful')
+    axios.get('http://localhost:3002/product/reviews/helpful', {
+      params: {
+        sku: sku
+      }
+    })
       .then(res => {
         console.log(res.data);
         let helpfulData = res.data;
         this.setState({
-          helpful: helpfulData
+          helpful: helpfulData, 
+          helpfulRating1: (helpfulData[0] ? helpfulData[0].stars : 0), 
+          helpfulRating2: (helpfulData[1] ? helpfulData[1].stars : 0), 
+          helpfulRating3: (helpfulData[2] ? helpfulData[2].stars : 0), 
+          helpfulRating4: (helpfulData[3] ? helpfulData[3].stars : 0)
         }) 
+      })
+      .catch(err => {
+        console.error(err);
+      })
+
+      axios.get('http://localhost:3002/product/reviews/all', {
+        params: {
+          sku: sku
+        }  
+      })
+      .then(res => {
+        console.log(res.data);
+        let allData = res.data;
+        let num = 0;
+        for (let x = 0; x < allData.length; x++) {
+          num += allData[x].stars;
+        }
+        num = num/allData.length;
+        this.setState({
+          totalReviews: allData,
+          totalRating: num
+        }) 
+        console.log('here', num);
       })
       .catch(err => {
         console.error(err);
@@ -49,13 +103,14 @@ class FormContainer extends Component {
   }
 
   render() {
+    window.reviews = this;
     return (
       <div>
         <div>
           <center>
-            <h2>Ratings &amp; reviews <u>{(this.state.helpful.length + this.state.recent.length)}</u></h2>
+            <h2>Ratings &amp; reviews <u>{this.state.totalReviews? this.state.totalReviews.length : 0}</u></h2>
             <StarRatings
-              rating={4.5}
+              rating={this.state.totalRating}
               starDimension="24px"
               starSpacing="0px"
               starRatedColor="gold"
@@ -67,65 +122,65 @@ class FormContainer extends Component {
           <div>
             <table>
               <tr><td>
-                <h4>{this.state.helpful[0].header}</h4> 
-                <div>{this.state.helpful[0].stars >= 3 ? '(would recommend)' : '(would not recommend)'}</div> 
+                <h4>{this.state.helpful[0] ? this.state.helpful[0].header : null}</h4> 
+                <div>{this.state.helpful[0]? (this.state.helpful[0].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
                 <StarRatings
-                  rating={5} 
+                  rating={this.state.helpfulRating1} 
                   starDimension="12px"
                   starSpacing="0px"
                   starRatedColor="gold"
                 />
-                {this.state.helpful[0].username} - {this.state.helpful[0].post_date.slice(0, 10)}
+                {this.state.helpful[0] ? this.state.helpful[0].username : null} - {this.state.helpful[0] ? this.state.helpful[0].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <span>{this.state.helpful[0].body}</span>
+                <span>{this.state.helpful[0] ? this.state.helpful[0].body : null}</span>
               </td>
               <td>
-                <h4>{this.state.helpful[1].header}</h4> 
-                <div>{this.state.helpful[1].stars >= 3 ? '(would recommend)' : '(would not recommend)'}</div> 
+                <h4>{this.state.helpful[1] ? this.state.helpful[1].header : null}</h4> 
+                <div>{this.state.helpful[1]? (this.state.helpful[1].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
                 <StarRatings
-                  rating={5} 
+                  rating={this.state.helpfulRating2} 
                   starDimension="12px"
                   starSpacing="0px"
                   starRatedColor="gold"
                 />
-                {this.state.helpful[1].username} - {this.state.helpful[1].post_date.slice(0, 10)}
+                {this.state.helpful[1] ? this.state.helpful[1].username : null} - {this.state.helpful[1] ? this.state.helpful[1].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <span>{this.state.helpful[1].body}</span>
+                <span>{this.state.helpful[1] ? this.state.helpful[1].body : null}</span>
               </td></tr>
               <br></br>
               <tr><td>
-                <h4>{this.state.helpful[2].header}</h4> 
-                <div>{this.state.helpful[2].stars >= 3 ? '(would recommend)' : '(would not recommend)'}</div> 
+                <h4>{this.state.helpful[2] ? this.state.helpful[2].header : null}</h4> 
+                <div>{this.state.helpful[2]? (this.state.helpful[2].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
                 <StarRatings
-                  rating={5} 
+                  rating={this.state.helpfulRating3} 
                   starDimension="12px"
                   starSpacing="0px"
                   starRatedColor="gold"
                 />
-                {this.state.helpful[2].username} - {this.state.helpful[2].post_date.slice(0, 10)}
+                {this.state.helpful[2] ? this.state.helpful[2].username : null} - {this.state.helpful[2] ? this.state.helpful[2].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <span>{this.state.helpful[2].body}</span>
+                <span>{this.state.helpful[2] ? this.state.helpful[2].body : null}</span>
               </td>
               <td>
-                <h4>{this.state.helpful[3].header}</h4> 
-                <div>{this.state.helpful[3].stars >= 3 ? '(would recommend)' : '(would not recommend)'}</div> 
+                <h4>{this.state.helpful[3] ? this.state.helpful[3].header : null}</h4> 
+                <div>{this.state.helpful[3]? (this.state.helpful[3].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
                 <StarRatings
-                  rating={5} 
+                  rating={this.state.helpfulRating4} 
                   starDimension="12px"
                   starSpacing="0px"
                   starRatedColor="gold"
                 />
-                {this.state.helpful[3].username} - {this.state.helpful[3].post_date.slice(0, 10)}
+                {this.state.helpful[3] ? this.state.helpful[3].username : null} - {this.state.helpful[3] ? this.state.helpful[3].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <span>{this.state.helpful[3].body}</span>
+                <span>{this.state.helpful[3] ? this.state.helpful[3].body : null}</span>
               </td></tr>
             </table>
           </div>
@@ -136,65 +191,65 @@ class FormContainer extends Component {
           <div>
             <table>
               <tr><td>
-                <h4>{this.state.recent[0].header}</h4> 
-                <div>{this.state.recent[0].stars >= 3 ? '(would recommend)' : '(would not recommend)'}</div> 
+                <h4>{this.state.recent[0] ? this.state.recent[0].header : null}</h4> 
+                <div>{this.state.recent[0]? (this.state.recent[0].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
                 <StarRatings
-                  rating={4} 
+                  rating={this.state.recentRating1} 
                   starDimension="12px"
                   starSpacing="0px"
                   starRatedColor="gold"
                 />
-                {this.state.recent[0].username} - {this.state.recent[0].post_date.slice(0, 10)}
+                {this.state.recent[0] ? this.state.recent[0].username : null} - {this.state.recent[0] ? this.state.recent[0].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <span>{this.state.recent[0].body}</span>
+                <span>{this.state.recent[0] ? this.state.recent[0].body : null}</span>
               </td>
               <td>
-                <h4>{this.state.recent[1].header}</h4> 
-                <div>{this.state.recent[1].stars >= 3 ? '(would recommend)' : '(would not recommend)'}</div> 
+                <h4>{this.state.recent[1] ? this.state.recent[1].header : null}</h4> 
+                <div>{this.state.recent[1]? (this.state.recent[1].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
                 <StarRatings
-                  rating={4} 
+                  rating={this.state.recentRating2} 
                   starDimension="12px"
                   starSpacing="0px"
                   starRatedColor="gold"
                 />
-                {this.state.recent[1].username} - {this.state.recent[1].post_date.slice(0, 10)}
+                {this.state.recent[1] ? this.state.recent[1].username : null} - {this.state.recent[1] ? this.state.recent[1].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <span>{this.state.recent[1].body}</span>
+                <span>{this.state.recent[1] ? this.state.recent[1].body : null}</span>
               </td></tr>
               <br></br>
               <tr><td>
-                <h4>{this.state.recent[2].header}</h4> 
-                <div>{this.state.recent[2].stars >= 3 ? '(would recommend)' : '(would not recommend)'}</div> 
+                <h4>{this.state.recent[2] ? this.state.recent[2].header : null}</h4> 
+                <div>{this.state.recent[2]? (this.state.recent[2].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
                 <StarRatings
-                  rating={5} 
+                  rating={this.state.recentRating3}
                   starDimension="12px"
                   starSpacing="0px"
                   starRatedColor="gold"
                 />
-                {this.state.recent[2].username} - {this.state.recent[2].post_date.slice(0, 10)}
+                {this.state.recent[2] ? this.state.recent[2].username : null} - {this.state.recent[2] ? this.state.recent[2].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <span>{this.state.recent[2].body}</span>
+                <span>{this.state.recent[2] ? this.state.recent[2].body : null}</span>
               </td>
               <td>
-                <h4>{this.state.recent[3].header}</h4> 
-                <div>{this.state.recent[3].stars >= 3 ? '(would recommend)' : '(would not recommend)'}</div> 
+                <h4>{this.state.recent[3] ? this.state.recent[3].header : null}</h4> 
+                <div>{this.state.recent[3]? (this.state.recent[3].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
                 <StarRatings
-                  rating={2} 
+                  rating={this.state.recentRating4}
                   starDimension="12px"
                   starSpacing="0px"
                   starRatedColor="gold"
                 />
-                {this.state.recent[3].username} - {this.state.recent[3].post_date.slice(0, 10)}
+                {this.state.recent[3] ? this.state.recent[3].username : null} - {this.state.recent[3] ? this.state.recent[3].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <span>{this.state.recent[3].body}</span>
+                <span>{this.state.recent[3] ? this.state.recent[3].body : null}</span>
               </td></tr>
             </table>
           </div>
@@ -204,7 +259,7 @@ class FormContainer extends Component {
   }
 }
 
-const wrapper = document.getElementById("app");
+const wrapper = document.getElementById("reviews");
 wrapper ? ReactDOM.render(<FormContainer />, wrapper) : false;
 
 export default FormContainer;
