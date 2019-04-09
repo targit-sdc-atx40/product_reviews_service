@@ -8,6 +8,8 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "restart": "pm2 startOrRestart ecosystem.config.js",
+    "deploy": "pm2 deploy ecosystem.config.js production",
     "dev-start": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production",
     "start": "nodemon server/server.js"
@@ -29,6 +31,7 @@
     "nodemon": "^1.18.10",
     "path": "^0.12.7",
     "pg": "^7.9.0",
+    "pm2": "^3.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
