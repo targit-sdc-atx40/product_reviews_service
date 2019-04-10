@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3002;
+const port = 3000;
 const db = require('../database/db_config.js');
 const {recentReviews} = require('../database/db_config.js');
 const {helpfulReviews} = require('../database/db_config.js');
