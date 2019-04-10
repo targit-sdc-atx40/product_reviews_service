@@ -38,7 +38,7 @@ class FormContainer extends Component {
 
   updateCurrentReviews() {
     let sku = window.State || Math.floor(Math.random() * 100) + 1;
-    axios.get('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com/sproduct/reviews/recent', {
+    axios.get('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com/product/reviews/recent', {
       params: {
         sku: sku
       }
