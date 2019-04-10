@@ -1,7 +1,11 @@
 const { Client } = require('pg');
 const client = new Client({
-  database: 'product_info'
-});
+  host: 'product-info.cbxobgkygcxr.us-east-2.rds.amazonaws.com',
+  port: 5432,
+  user: 'dvcastillo37',
+  database: 'product_info',
+  password: 'password'
+})
 
 client.connect((err) => {
   if (err) {
@@ -12,7 +16,6 @@ client.connect((err) => {
 });
 
 const helpfulReviews = (sku, callback) => {
-  setTimeout(() => {console.log('herererere' ,sku)}, 2000)
   client.query(`SELECT * FROM reviews WHERE sku_ID = ${sku} ORDER BY reviews.stars DESC LIMIT 4`, (err, results) => {
     if (err) {
       console.error(err);
