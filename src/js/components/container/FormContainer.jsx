@@ -121,7 +121,7 @@ class FormContainer extends Component {
           <h3>Most helpful positive reviews</h3>
           <div>
             <table>
-              <tr><td style={{width: '50%', margin: '10px'}}>
+              <tr><td style={{width: '677.5px', margin: '10px'}}>
                 <h4>{this.state.helpful[0] ? this.state.helpful[0].header : null}</h4> 
                 <div>{this.state.helpful[0]? (this.state.helpful[0].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
@@ -136,7 +136,7 @@ class FormContainer extends Component {
                 <br></br>
                 <span>{this.state.helpful[0] ? this.state.helpful[0].body : null}</span>
               </td>
-              <td style={{width: '50%', margin: '10px'}}>
+              <td style={{width: '677.5px', margin: '10px'}}>
                 <h4>{this.state.helpful[1] ? this.state.helpful[1].header : null}</h4> 
                 <div>{this.state.helpful[1]? (this.state.helpful[1].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
@@ -152,7 +152,7 @@ class FormContainer extends Component {
                 <span>{this.state.helpful[1] ? this.state.helpful[1].body : null}</span>
               </td></tr>
               <br></br>
-              <tr><td style={{width: '50%', margin: '10px'}}>
+              <tr><td style={{width: '677.5px', margin: '10px'}}>
                 <h4>{this.state.helpful[2] ? this.state.helpful[2].header : null}</h4> 
                 <div>{this.state.helpful[2]? (this.state.helpful[2].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
@@ -167,7 +167,7 @@ class FormContainer extends Component {
                 <br></br>
                 <span>{this.state.helpful[2] ? this.state.helpful[2].body : null}</span>
               </td>
-              <td style={{width: '50%', margin: '10px'}}> 
+              <td style={{width: '677.5px', margin: '10px'}}> 
                 <h4>{this.state.helpful[3] ? this.state.helpful[3].header : null}</h4> 
                 <div>{this.state.helpful[3]? (this.state.helpful[3].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
@@ -190,7 +190,7 @@ class FormContainer extends Component {
           <h3>Most recent reviews</h3>
           <div>
             <table>
-              <tr><td style={{width: '50%', margin: '10px'}}>
+              <tr><td style={{width: '677.5px', margin: '10px'}}>
                 <h4>{this.state.recent[0] ? this.state.recent[0].header : null}</h4> 
                 <div>{this.state.recent[0]? (this.state.recent[0].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
@@ -205,7 +205,7 @@ class FormContainer extends Component {
                 <br></br>
                 <span>{this.state.recent[0] ? this.state.recent[0].body : null}</span>
               </td>
-              <td style={{width: '50%', margin: '10px'}}>
+              <td style={{width: '677.5px', margin: '10px'}}>
                 <h4>{this.state.recent[1] ? this.state.recent[1].header : null}</h4> 
                 <div>{this.state.recent[1]? (this.state.recent[1].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
@@ -221,7 +221,7 @@ class FormContainer extends Component {
                 <span>{this.state.recent[1] ? this.state.recent[1].body : null}</span>
               </td></tr>
               <br></br>
-              <tr><td style={{width: '50%', margin: '10px'}}>
+              <tr><td style={{width: '677.5px', margin: '10px'}}>
                 <h4>{this.state.recent[2] ? this.state.recent[2].header : null}</h4> 
                 <div>{this.state.recent[2]? (this.state.recent[2].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
@@ -236,7 +236,7 @@ class FormContainer extends Component {
                 <br></br>
                 <span>{this.state.recent[2] ? this.state.recent[2].body : null}</span>
               </td>
-              <td style={{width: '50%', margin: '10px'}}>
+              <td style={{width: '677.5px', margin: '10px'}}>
                 <h4>{this.state.recent[3] ? this.state.recent[3].header : null}</h4> 
                 <div>{this.state.recent[3]? (this.state.recent[3].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
