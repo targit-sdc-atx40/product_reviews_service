@@ -136,7 +136,7 @@ class FormContainer extends Component {
                 <br></br>
                 <div style={{marginRight: '10 px'}}>{this.state.helpful[0] ? this.state.helpful[0].body : null}</div>
               </td>
-              <td style={{width: '677.5px', margin: '10px'}}>
+              <td style={{width: '677.5px'}}>
                 <h4>{this.state.helpful[1] ? this.state.helpful[1].header : null}</h4> 
                 <div>{this.state.helpful[1]? (this.state.helpful[1].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
