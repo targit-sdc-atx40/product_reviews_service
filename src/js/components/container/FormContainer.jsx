@@ -108,7 +108,7 @@ class FormContainer extends Component {
       <div style={{fontFamily: "Helvetica Neue", color: "#333333", margin: '15px'}}>
         <div>
           <center>
-            <h2>Ratings &amp; reviews <u>{this.state.totalReviews? this.state.totalReviews.length : 0}</u></h2>
+            <h2>Ratings &amp; reviews <u style={{color: '#666666'}}>{this.state.totalReviews? this.state.totalReviews.length : 0}</u></h2>
             <StarRatings
               rating={this.state.totalRating}
               starDimension="24px"
