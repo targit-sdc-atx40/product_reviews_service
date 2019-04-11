@@ -134,7 +134,7 @@ class FormContainer extends Component {
                 {this.state.helpful[0] ? this.state.helpful[0].username : null} - {this.state.helpful[0] ? this.state.helpful[0].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <div style={{margin: '10 px'}}>{this.state.helpful[0] ? this.state.helpful[0].body : null}</div>
+                <div style={{padding: '10 px'}}>{this.state.helpful[0] ? this.state.helpful[0].body : null}</div>
               </td>
               <td style={{width: '677.5px', margin: '10px'}}>
                 <h4>{this.state.helpful[1] ? this.state.helpful[1].header : null}</h4> 
@@ -149,7 +149,7 @@ class FormContainer extends Component {
                 {this.state.helpful[1] ? this.state.helpful[1].username : null} - {this.state.helpful[1] ? this.state.helpful[1].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <div style={{margin: '10 px'}}>{this.state.helpful[1] ? this.state.helpful[1].body : null}</div>
+                <div style={{padding: '10 px'}}>{this.state.helpful[1] ? this.state.helpful[1].body : null}</div>
               </td></tr>
               <br></br>
               <tr><td style={{width: '677.5px', margin: '10px'}}>
@@ -165,7 +165,7 @@ class FormContainer extends Component {
                 {this.state.helpful[2] ? this.state.helpful[2].username : null} - {this.state.helpful[2] ? this.state.helpful[2].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <div style={{margin: '10 px'}}>{this.state.helpful[2] ? this.state.helpful[2].body : null}</div>
+                <div style={{padding: '10 px'}}>{this.state.helpful[2] ? this.state.helpful[2].body : null}</div>
               </td>
               <td style={{width: '677.5px', margin: '10px'}}> 
                 <h4>{this.state.helpful[3] ? this.state.helpful[3].header : null}</h4> 
@@ -180,7 +180,7 @@ class FormContainer extends Component {
                 {this.state.helpful[3] ? this.state.helpful[3].username : null} - {this.state.helpful[3] ? this.state.helpful[3].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <div style={{margin: '10 px'}}>{this.state.helpful[3] ? this.state.helpful[3].body : null}</div>
+                <div style={{padding: '10 px'}}>{this.state.helpful[3] ? this.state.helpful[3].body : null}</div>
               </td></tr>
             </table>
           </div>
@@ -203,7 +203,7 @@ class FormContainer extends Component {
                 {this.state.recent[0] ? this.state.recent[0].username : null} - {this.state.recent[0] ? this.state.recent[0].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <div style={{margin: '10 px'}}>{this.state.recent[0] ? this.state.recent[0].body : null}</div>
+                <div style={{padding: '10 px'}}>{this.state.recent[0] ? this.state.recent[0].body : null}</div>
               </td>
               <td style={{width: '677.5px', margin: '10px'}}>
                 <h4>{this.state.recent[1] ? this.state.recent[1].header : null}</h4> 
@@ -218,7 +218,7 @@ class FormContainer extends Component {
                 {this.state.recent[1] ? this.state.recent[1].username : null} - {this.state.recent[1] ? this.state.recent[1].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <div style={{margin: '10 px'}}>{this.state.recent[1] ? this.state.recent[1].body : null}</div>
+                <div style={{padding: '10 px'}}>{this.state.recent[1] ? this.state.recent[1].body : null}</div>
               </td></tr>
               <br></br>
               <tr><td style={{width: '677.5px', margin: '10px'}}>
@@ -234,7 +234,7 @@ class FormContainer extends Component {
                 {this.state.recent[2] ? this.state.recent[2].username : null} - {this.state.recent[2] ? this.state.recent[2].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <div style={{margin: '10 px'}}>{this.state.recent[2] ? this.state.recent[2].body : null}</div>
+                <div style={{padding: '10 px'}}>{this.state.recent[2] ? this.state.recent[2].body : null}</div>
               </td>
               <td style={{width: '677.5px', margin: '10px'}}>
                 <h4>{this.state.recent[3] ? this.state.recent[3].header : null}</h4> 
@@ -249,7 +249,7 @@ class FormContainer extends Component {
                 {this.state.recent[3] ? this.state.recent[3].username : null} - {this.state.recent[3] ? this.state.recent[3].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <div style={{margin: '10 px'}}>{this.state.recent[3] ? this.state.recent[3].body : null}</div>
+                <div style={{padding: '10 px'}}>{this.state.recent[3] ? this.state.recent[3].body : null}</div>
               </td></tr>
             </table>
           </div>
