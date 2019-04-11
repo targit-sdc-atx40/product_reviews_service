@@ -38,7 +38,7 @@ class FormContainer extends Component {
 
   updateCurrentReviews() {
     let sku = window.State || Math.floor(Math.random() * 100) + 1;
-    axios.get('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com/product/reviews/recent', {
+    axios.get('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com:3002/product/reviews/recent', {
       params: {
         sku: sku
       }
@@ -58,7 +58,7 @@ class FormContainer extends Component {
         console.error(err);
       })
 
-    axios.get('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com/product/reviews/helpful', {
+    axios.get('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com:3002/product/reviews/helpful', {
       params: {
         sku: sku
       }
@@ -78,7 +78,7 @@ class FormContainer extends Component {
         console.error(err);
       })
 
-      axios.get('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com/product/reviews/all', {
+      axios.get('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com:3002/product/reviews/all', {
         params: {
           sku: sku
         }  
