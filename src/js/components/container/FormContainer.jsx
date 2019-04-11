@@ -121,7 +121,7 @@ class FormContainer extends Component {
           <h3>Most helpful positive reviews</h3>
           <div>
             <table>
-              <tr><td style={{width: '677.5px', margin: '10px'}}>
+              <tr><td style={{width: '677.5px', marginRight: '10px'}}>
                 <h4>{this.state.helpful[0] ? this.state.helpful[0].header : null}</h4> 
                 <div>{this.state.helpful[0]? (this.state.helpful[0].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
