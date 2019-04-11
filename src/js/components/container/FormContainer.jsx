@@ -105,7 +105,7 @@ class FormContainer extends Component {
   render() {
     window.reviews = this;
     return (
-      <div style={{fontFamily: 'Helvetica'}}>
+      <div style={{fontFamily: 'Helvetica Neue'}}>
         <div>
           <center>
             <h2>Ratings &amp; reviews <u>{this.state.totalReviews? this.state.totalReviews.length : 0}</u></h2>
