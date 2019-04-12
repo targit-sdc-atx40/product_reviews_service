@@ -105,9 +105,6 @@ class FormContainer extends Component {
       })
   }
 
-  text-size-adjust: 100%;
-    box-sizing: border-box;
-
   render() {
     // window.reviews = this;
     return (
