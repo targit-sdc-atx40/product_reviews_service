@@ -3,9 +3,6 @@ import ReactDOM from "react-dom";
 import StarRatings from "react-star-ratings";
 import axios from "axios";
 
-let currentSku;
-window.addEventListener('changeItem', (event) => {currentSku=event.detail; this.updateCurrentReviews(); console.log('currentsku', (currentSku))});
-
 class FormContainer extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +33,9 @@ class FormContainer extends Component {
   }
 
   componentDidMount() {
-    this.updateCurrentReviews();
+    let currentSku;
+    window.addEventListener('changeItem', (event) => {currentSku=event.detail; this.updateCurrentReviews(); console.log('currentsku', (currentSku))});
+    // this.updateCurrentReviews();
   }
 
   updateCurrentReviews() {
