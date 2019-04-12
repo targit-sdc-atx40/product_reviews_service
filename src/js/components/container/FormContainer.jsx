@@ -40,9 +40,10 @@ class FormContainer extends Component {
   }
 
   updateCurrentReviews() {
+    let sku = currentSku;
     axios.get('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com:3002/product/reviews/recent', {
       params: {
-        sku: currentSku
+        sku: sku
       }
     })
       .then(res => {
@@ -62,7 +63,7 @@ class FormContainer extends Component {
 
     axios.get('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com:3002/product/reviews/helpful', {
       params: {
-        sku: currentSku
+        sku: sku
       }
     })
       .then(res => {
@@ -82,7 +83,7 @@ class FormContainer extends Component {
 
       axios.get('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com:3002/product/reviews/all', {
         params: {
-          sku: currentSku
+          sku: sku
         }  
       })
       .then(res => {
