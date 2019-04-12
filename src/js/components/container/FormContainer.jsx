@@ -122,7 +122,7 @@ class FormContainer extends Component {
           </center>
         </div>
         <div>
-          <h3 style={{fontSize: '19px', fontWeight: 'bold'}}>Most helpful positive reviews test</h3>
+          <h3 style={{fontSize: '19px', fontWeight: 'bold'}}>Most helpful positive reviews</h3>
           <div>
             <table>
               <tr><td style={{width: '677.5px'}}>
