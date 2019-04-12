@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import StarRatings from "react-star-ratings";
 import axios from "axios";
 
+let currentSku;
+window.addEventListener('changeItem', (event) => {currentSku=event.detail});
+
 class FormContainer extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +40,7 @@ class FormContainer extends Component {
   }
 
   updateCurrentReviews() {
-    let sku = window.State || Math.floor(Math.random() * 100) + 1;
+    let sku = currentSku || Math.floor(Math.random() * 100) + 1;
     axios.get('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com:3002/product/reviews/recent', {
       params: {
         sku: sku
@@ -103,7 +106,7 @@ class FormContainer extends Component {
   }
 
   render() {
-    window.reviews = this;
+    // window.reviews = this;
     return (
       <div style={{fontFamily: "Helvetica Neue", color: "#333333", margin: '15px'}}>
         <div>
@@ -121,7 +124,7 @@ class FormContainer extends Component {
           <h3>Most helpful positive reviews</h3>
           <div>
             <table>
-              <tr><td style={{width: '677.5px'}}>
+              <tr><td style={{width: '677.5px', padding: '15px'}}>
                 <h4>{this.state.helpful[0] ? this.state.helpful[0].header : null}</h4> 
                 <div>{this.state.helpful[0]? (this.state.helpful[0].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
@@ -134,9 +137,9 @@ class FormContainer extends Component {
                 {this.state.helpful[0] ? this.state.helpful[0].username : null} - {this.state.helpful[0] ? this.state.helpful[0].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <div style={{marginRight: '10 px'}}>{this.state.helpful[0] ? this.state.helpful[0].body : null}</div>
+                <div style={{padding: '15px'}}>{this.state.helpful[0] ? this.state.helpful[0].body : null}</div>
               </td>
-              <td style={{width: '677.5px'}}>
+              <td style={{width: '677.5px', padding: '25 px'}}>
                 <h4>{this.state.helpful[1] ? this.state.helpful[1].header : null}</h4> 
                 <div>{this.state.helpful[1]? (this.state.helpful[1].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
@@ -149,7 +152,7 @@ class FormContainer extends Component {
                 {this.state.helpful[1] ? this.state.helpful[1].username : null} - {this.state.helpful[1] ? this.state.helpful[1].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <div style={{padding: '10 px'}}>{this.state.helpful[1] ? this.state.helpful[1].body : null}</div>
+                <div>{this.state.helpful[1] ? this.state.helpful[1].body : null}</div>
               </td></tr>
               <br></br>
               <tr><td style={{width: '677.5px'}}>
