@@ -111,7 +111,7 @@ class FormContainer extends Component {
       <div style={{fontFamily: "Helvetica Neue", color: "#333333", marginLeft: '100px', marginRight: '100px'}}>
         <div>
           <center>
-            <h2 style={{fontSize: '23px'}}>Ratings &amp; reviews <u style={{color: '#666666'}}>{this.state.totalReviews? this.state.totalReviews.length : 0}</u></h2>
+            <h2 style={{fontSize: '23px', fontWeight: 'strong'}}>Ratings &amp; reviews <u style={{color: '#666666'}}>{this.state.totalReviews? this.state.totalReviews.length : 0}</u></h2>
             <StarRatings
               rating={this.state.totalRating}
               starDimension="24px"
@@ -121,7 +121,7 @@ class FormContainer extends Component {
           </center>
         </div>
         <div>
-          <h3 style={{fontSize: '19px'}}>Most helpful positive reviews test</h3>
+          <h3 style={{fontSize: '19px', fontWeight: 'strong'}}>Most helpful positive reviews test</h3>
           <div>
             <table>
               <tr><td style={{width: '677.5px'}}>
@@ -190,7 +190,7 @@ class FormContainer extends Component {
         </div>
         <br></br>
         <div>
-          <h3 style={{fontSize: '19px'}}>Most recent reviews</h3>
+          <h3 style={{fontSize: '19px', fontWeight: 'strong'}}>Most recent reviews</h3>
           <div>
             <table>
               <tr><td style={{width: '677.5px'}}>
