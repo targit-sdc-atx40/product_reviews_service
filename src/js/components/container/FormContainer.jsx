@@ -4,7 +4,7 @@ import StarRatings from "react-star-ratings";
 import axios from "axios";
 
 let currentSku;
-window.addEventListener('changeItem', (event) => {currentSku=event.detail; console.log('currentsku', (currentSku))});
+window.addEventListener('changeItem', (event) => {currentSku=event.detail; this.updateCurrentReviews(); console.log('currentsku', (currentSku))});
 
 class FormContainer extends Component {
   constructor(props) {
@@ -40,6 +40,7 @@ class FormContainer extends Component {
   }
 
   updateCurrentReviews() {
+    console.log('sku in updateCurrentReviews', currentSku)
     let sku = currentSku;
     axios.get('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com:3002/product/reviews/recent', {
       params: {
