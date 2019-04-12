@@ -33,7 +33,7 @@ class FormContainer extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('changeItem', (event) => { event.preventDefault(); let currentSku=event.detail; this.updateCurrentReviews(currentSku); console.log('currentsku', (currentSku))});
+    window.addEventListener((event) => {let currentSku=event.detail; this.updateCurrentReviews(currentSku); console.log('currentsku', (currentSku))});
     // this.updateCurrentReviews();
   }
 
