@@ -153,7 +153,7 @@ class FormContainer extends Component {
                 {this.state.helpful[1] ? this.state.helpful[1].username : null} - {this.state.helpful[1] ? this.state.helpful[1].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <div style={{paddingRight: '15px'}}>{this.state.helpful[1] ? this.state.helpful[1].body : null}</div>
+                <div style={{paddingRight: '15px', fontSize: '14px'}}>{this.state.helpful[1] ? this.state.helpful[1].body : null}</div>
               </td></tr>
               <br></br>
               <tr><td style={{width: '677.5px'}}>
