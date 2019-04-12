@@ -4,7 +4,7 @@ import StarRatings from "react-star-ratings";
 import axios from "axios";
 
 let currentSku;
-window.addEventListener('changeItem', (event) => {currentSku=event.detail});
+window.addEventListener('changeItem', (event) => {currentSku=event.detail; console.log('currentsku', (currentSku))});
 
 class FormContainer extends Component {
   constructor(props) {
