@@ -105,10 +105,13 @@ class FormContainer extends Component {
       })
   }
 
+  text-size-adjust: 100%;
+    box-sizing: border-box;
+
   render() {
     // window.reviews = this;
     return (
-      <div style={{fontFamily: "Helvetica Neue", color: "#333333", marginLeft: '100px', marginRight: '100px'}}>
+      <div style={{fontFamily: "Helvetica Neue", color: "#333333", marginLeft: '20px', marginRight: '20px', boxSizing: 'border-box', textSizeAdjust: '100%'}}>
       <br></br>
         <div>
           <center>
