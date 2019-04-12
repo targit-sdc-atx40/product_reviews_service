@@ -149,7 +149,7 @@ class FormContainer extends Component {
                   starDimension="12px"
                   starSpacing="0px"
                   starRatedColor="gold"
-                />
+                /> {' '}
                 {this.state.helpful[1] ? this.state.helpful[1].username : null} - {this.state.helpful[1] ? this.state.helpful[1].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
