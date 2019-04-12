@@ -126,9 +126,9 @@ class FormContainer extends Component {
           <div>
             <table>
               <tr><td style={{width: '677.5px'}}>
-                <h4>{this.state.helpful[0] ? this.state.helpful[0].header : null}</h4> 
-                <div>{this.state.helpful[0]? (this.state.helpful[0].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
-                <span>
+                <h4 style={{fontSize: '16px', fontWeight: 'bold'}}>{this.state.helpful[0] ? this.state.helpful[0].header : null}</h4> 
+                <div style={{fontSize: '14px'}}>{this.state.helpful[0]? (this.state.helpful[0].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
+                <span style={{fontSize: '12px'}}>
                 <StarRatings
                   rating={this.state.helpfulRating1} 
                   starDimension="12px"
