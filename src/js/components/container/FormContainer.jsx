@@ -142,7 +142,7 @@ class FormContainer extends Component {
               </td>
               <td style={{width: '677.5px'}}>
                 <h4 style={{fontSize: '16px', fontWeight: 'bold'}}>{this.state.helpful[1] ? this.state.helpful[1].header : null}</h4> 
-                <div>{this.state.helpful[1]? (this.state.helpful[1].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
+                <div style={{fontSize: '14px'}}>{this.state.helpful[1]? (this.state.helpful[1].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
                 <StarRatings
                   rating={this.state.helpfulRating2} 
@@ -158,7 +158,7 @@ class FormContainer extends Component {
               <br></br>
               <tr><td style={{width: '677.5px'}}>
                 <h4 style={{fontSize: '16px', fontWeight: 'bold'}}>{this.state.helpful[2] ? this.state.helpful[2].header : null}</h4> 
-                <div>{this.state.helpful[2]? (this.state.helpful[2].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
+                <div style={{fontSize: '14px'}}>{this.state.helpful[2]? (this.state.helpful[2].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
                 <StarRatings
                   rating={this.state.helpfulRating3} 
@@ -173,7 +173,7 @@ class FormContainer extends Component {
               </td>
               <td style={{width: '677.5px'}}> 
                 <h4 style={{fontSize: '16px', fontWeight: 'bold'}}>{this.state.helpful[3] ? this.state.helpful[3].header : null}</h4> 
-                <div>{this.state.helpful[3]? (this.state.helpful[3].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
+                <div style={{fontSize: '14px'}}>{this.state.helpful[3]? (this.state.helpful[3].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
                 <StarRatings
                   rating={this.state.helpfulRating4} 
@@ -196,7 +196,7 @@ class FormContainer extends Component {
             <table>
               <tr><td style={{width: '677.5px'}}>
                 <h4 style={{fontSize: '16px', fontWeight: 'bold'}}>{this.state.recent[0] ? this.state.recent[0].header : null}</h4> 
-                <div>{this.state.recent[0]? (this.state.recent[0].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
+                <div style={{fontSize: '14px'}}>{this.state.recent[0]? (this.state.recent[0].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
                 <StarRatings
                   rating={this.state.recentRating1} 
@@ -211,7 +211,7 @@ class FormContainer extends Component {
               </td>
               <td style={{width: '677.5px'}}>
                 <h4 style={{fontSize: '16px', fontWeight: 'bold'}}>{this.state.recent[1] ? this.state.recent[1].header : null}</h4> 
-                <div>{this.state.recent[1]? (this.state.recent[1].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
+                <div style={{fontSize: '14px'}}>{this.state.recent[1]? (this.state.recent[1].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
                 <StarRatings
                   rating={this.state.recentRating2} 
@@ -227,7 +227,7 @@ class FormContainer extends Component {
               <br></br>
               <tr><td style={{width: '677.5px'}}>
                 <h4 style={{fontSize: '16px', fontWeight: 'bold'}}>{this.state.recent[2] ? this.state.recent[2].header : null}</h4> 
-                <div>{this.state.recent[2]? (this.state.recent[2].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
+                <div style={{fontSize: '14px'}}>{this.state.recent[2]? (this.state.recent[2].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
                 <StarRatings
                   rating={this.state.recentRating3}
@@ -242,7 +242,7 @@ class FormContainer extends Component {
               </td>
               <td style={{width: '677.5px'}}>
                 <h4 style={{fontSize: '16px', fontWeight: 'bold'}}>{this.state.recent[3] ? this.state.recent[3].header : null}</h4> 
-                <div>{this.state.recent[3]? (this.state.recent[3].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
+                <div style={{fontSize: '14px'}}>{this.state.recent[3]? (this.state.recent[3].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
                 <StarRatings
                   rating={this.state.recentRating4}
