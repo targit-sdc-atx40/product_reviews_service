@@ -124,7 +124,7 @@ class FormContainer extends Component {
           <h3 style={{fontSize: '19px'}}>Most helpful positive reviews test</h3>
           <div>
             <table>
-              <tr><td style={{width: '677.5px', paddingLeft: '15px', paddingRight: '15px'}}>
+              <tr><td style={{width: '677.5px'}}>
                 <h4>{this.state.helpful[0] ? this.state.helpful[0].header : null}</h4> 
                 <div>{this.state.helpful[0]? (this.state.helpful[0].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
@@ -139,7 +139,7 @@ class FormContainer extends Component {
                 <br></br>
                 <div style={{paddingRight: '15px'}}>{this.state.helpful[0] ? this.state.helpful[0].body : null}</div>
               </td>
-              <td style={{width: '677.5px', paddingLeft: '15px', paddingRight: '15px'}}>
+              <td style={{width: '677.5px'}}>
                 <h4>{this.state.helpful[1] ? this.state.helpful[1].header : null}</h4> 
                 <div>{this.state.helpful[1]? (this.state.helpful[1].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
