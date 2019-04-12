@@ -33,11 +33,12 @@ class FormContainer extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('changeItem', (event) => {let currentSku=event.detail; this.updateCurrentReviews(currentSku); console.log('currentsku', (currentSku))});
+    window.addEventListener('changeItem', (event) => { event.preventDefault(); let currentSku=event.detail; this.updateCurrentReviews(currentSku); console.log('currentsku', (currentSku))});
     // this.updateCurrentReviews();
   }
 
   updateCurrentReviews(sku) {
+    
     axios.get('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com:3002/product/reviews/recent', {
       params: {
         sku: sku
