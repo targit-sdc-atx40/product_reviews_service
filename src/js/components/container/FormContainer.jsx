@@ -33,7 +33,9 @@ class FormContainer extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('changeItem', (event) => {let currentSku=event.detail; this.updateCurrentReviews(currentSku); console.log('currentsku', (currentSku))});
+    window.addEventListener('changeItem', (event) => {let currentSku=event.detail; 
+    this.updateCurrentReviews(currentSku); 
+    console.log('currentsku', currentSku)});
     // this.updateCurrentReviews();
   }
 
@@ -106,7 +108,7 @@ class FormContainer extends Component {
   render() {
     // window.reviews = this;
     return (
-      <div style={{fontFamily: "Helvetica Neue", color: "#333333", margin: '15px'}}>
+      <div style={{fontFamily: "Helvetica Neue", color: "#333333", marginLeft: '100px', marginRight: '100'}}>
         <div>
           <center>
             <h2>Ratings &amp; reviews <u style={{color: '#666666'}}>{this.state.totalReviews? this.state.totalReviews.length : 0}</u></h2>
@@ -122,7 +124,7 @@ class FormContainer extends Component {
           <h3>Most helpful positive reviews test</h3>
           <div>
             <table>
-              <tr><td style={{width: '677.5px', padding: '15px'}}>
+              <tr><td style={{width: '677.5px', paddingLeft: '15px', paddingRight: '15px'}}>
                 <h4>{this.state.helpful[0] ? this.state.helpful[0].header : null}</h4> 
                 <div>{this.state.helpful[0]? (this.state.helpful[0].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
@@ -135,9 +137,9 @@ class FormContainer extends Component {
                 {this.state.helpful[0] ? this.state.helpful[0].username : null} - {this.state.helpful[0] ? this.state.helpful[0].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <div style={{padding: '15px'}}>{this.state.helpful[0] ? this.state.helpful[0].body : null}</div>
+                <div style={{paddingRight: '15px'}}>{this.state.helpful[0] ? this.state.helpful[0].body : null}</div>
               </td>
-              <td style={{width: '677.5px', padding: '25 px'}}>
+              <td style={{width: '677.5px', paddingLeft: '15px', paddingRight: '15px'}}>
                 <h4>{this.state.helpful[1] ? this.state.helpful[1].header : null}</h4> 
                 <div>{this.state.helpful[1]? (this.state.helpful[1].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span>
@@ -150,7 +152,7 @@ class FormContainer extends Component {
                 {this.state.helpful[1] ? this.state.helpful[1].username : null} - {this.state.helpful[1] ? this.state.helpful[1].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
-                <div>{this.state.helpful[1] ? this.state.helpful[1].body : null}</div>
+                <div style={{paddingRight: '15px'}}>{this.state.helpful[1] ? this.state.helpful[1].body : null}</div>
               </td></tr>
               <br></br>
               <tr><td style={{width: '677.5px'}}>
