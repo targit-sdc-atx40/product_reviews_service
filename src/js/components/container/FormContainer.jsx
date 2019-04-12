@@ -125,7 +125,7 @@ class FormContainer extends Component {
           <h3 style={{fontSize: '19px', fontWeight: 'bold', display: 'block'}}>Most helpful positive reviews</h3>
           <div>
             <table>
-              <tr><td style={{width: '677.5px', padding: '0'}}>
+              <tr><td style={{width: '677.5px', padding: '0', verticalAlign: 'top'}}>
                 <h4 style={{fontSize: '16px', fontWeight: 'bold'}}>{this.state.helpful[0] ? this.state.helpful[0].header : null}</h4> 
                 <div style={{fontSize: '14px'}}>{this.state.helpful[0]? (this.state.helpful[0].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span style={{fontSize: '12px'}}>
@@ -140,7 +140,7 @@ class FormContainer extends Component {
                 <br></br>
                 <div style={{paddingRight: '15px', fontSize: '14px'}}>{this.state.helpful[0] ? this.state.helpful[0].body : null}</div>
               </td>
-              <td style={{width: '677.5px', padding: '0'}}>
+              <td style={{width: '677.5px', padding: '0', verticalAlign: 'top'}}>
                 <h4 style={{fontSize: '16px', fontWeight: 'bold', display: 'block'}}>{this.state.helpful[1] ? this.state.helpful[1].header : null}</h4> 
                 <div style={{fontSize: '14px'}}>{this.state.helpful[1]? (this.state.helpful[1].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span style={{fontSize: '12px'}}>
