@@ -327,7 +327,7 @@ class FormContainer extends Component {
         <div>
           <center>
           <>
-           <button style={{fontFamily: "Helvetica Neue", backgroundColor:"#cc0000", color: "white", fontSize:"14px", borderRadius: "4px"}} onClick={this.handleShow}>
+           <button style={{fontFamily: "Helvetica Neue", backgroundColor:"#cc0000", color: "white", fontSize:"14px", borderRadius: "4px", padding: "8px"}} onClick={this.handleShow}>
             write a review
            </button>
           <Modal show={this.state.show} onHide={this.handleClose}>
@@ -359,10 +359,10 @@ class FormContainer extends Component {
             <textarea ref="review" name="comment" form="textArea" placeholder="review" style={{fontFamily: "Helvetica Neue", color: "#333333", fontSize: "14px", width: "470px", height: "150px"}} id="review"></textarea>
           </Modal.Body>
           <Modal.Footer>
-            <button style={{fontFamily: "Helvetica Neue", backgroundColor:"#cc0000", color: "white", fontSize:"14px", borderRadius: "4px"}} onClick={this.handleClose}>
+            <button style={{fontFamily: "Helvetica Neue", backgroundColor:"#cc0000", color: "white", fontSize:"14px", borderRadius: "4px", padding: "8px"}} onClick={this.handleClose}>
               close
             </button>
-            <button style={{fontFamily: "Helvetica Neue", backgroundColor:"#cc0000", color: "white", fontSize:"14px", borderRadius: "4px"}} onClick={() => {
+            <button style={{fontFamily: "Helvetica Neue", backgroundColor:"#cc0000", color: "white", fontSize:"14px", borderRadius: "4px", padding: "8px"}} onClick={() => {
               let header = this.refs.title.value;
               let body = this.refs.review.value;
               let username = this.refs.name.value;
