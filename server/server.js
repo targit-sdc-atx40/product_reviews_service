@@ -47,6 +47,7 @@ app.get('/product/reviews/all', (req, res) => {
   })
 });
 app.post('/product/reviews', (req, res) => {
+  console.log('wreckkedBod', req.body)
   addReviews(req.body.header, req.body.stars, req.body.post_date, req.body.username, req.body.body, req.body.sku_ID, (err, data) => {
     if (err) {
       console.error(err);
