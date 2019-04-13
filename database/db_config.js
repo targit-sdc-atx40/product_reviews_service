@@ -45,4 +45,14 @@ const allReviews = (sku, callback) => {
   })
 }
 
-module.exports = {client, recentReviews, helpfulReviews, allReviews};
+const addReviews = (header, stars, post_date, username, body, sku_ID, callback) => {
+  client.query(`INSERT INTO reviews (header, stars, post_date, username, body, sku_ID) VALUES ('${header}', ${stars}, '${post_date}', '${username}', '${body}', ${sku_ID})`, (err, result) => {
+    if (err) {
+      console.error(err);
+    } else {
+      callback(null, result);
+    }
+  })
+}
+
+module.exports = {client, recentReviews, helpfulReviews, allReviews, addReviews};

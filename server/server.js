@@ -4,15 +4,19 @@ const port = 3002;
 const db = require('../database/db_config.js');
 const {recentReviews} = require('../database/db_config.js');
 const {helpfulReviews} = require('../database/db_config.js');
-const {allReviews} = require('../database/db_config.js')
+const {allReviews} = require('../database/db_config.js');
+const {addReviews} = require('../database/db_config.js');
+const cors = require('cors')
+
 app.use(express.json({urlencoded: true}));
+app.use(cors());
 app.use(express.static('./dist'));
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 app.get('/product/reviews/recent', (req, res) => {
   console.log('in server', req.query.sku);
@@ -42,6 +46,14 @@ app.get('/product/reviews/all', (req, res) => {
     }
   })
 });
-
+app.post('/product/reviews', (req, res) => {
+  addReviews(req.body.header, req.body.stars, req.body.post_date, req.body.username, req.body.body, req.body.sku_ID, (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      res.end();
+    }
+  })
+})
 
 app.listen(port, () => { console.log('Clean up on aisle ', port) });

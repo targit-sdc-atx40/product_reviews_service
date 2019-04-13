@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import StarRatings from "react-star-ratings";
 import axios from "axios";
 import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
 
 class FormContainer extends Component {
   constructor(props, context) {
@@ -31,7 +30,8 @@ class FormContainer extends Component {
       recentRating2: 0,
       recentRating3: 0,
       recentRating4: 0,
-      show: false
+      show: false, 
+      sku: null
     };
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -40,8 +40,11 @@ class FormContainer extends Component {
   componentDidMount() {
     window.addEventListener('changeItem', (event) => {let currentSku=event.detail; 
     this.updateCurrentReviews(currentSku); 
-    console.log('currentsku', currentSku)});
-    // this.updateCurrentReviews();
+    console.log('currentsku', currentSku);
+    this.setState({
+      sku: currentSku
+    })});
+    
   }
 
   handleClose() {
@@ -50,6 +53,23 @@ class FormContainer extends Component {
 
   handleShow() {
     this.setState({ show: true });
+  }
+  
+  addReviews(header, stars, username, body, sku_ID) {
+    axios.post('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com:3002/product/reviews', {
+      "header": header, 
+      "stars": stars, 
+      "post_date": new Date(), 
+      "username":username, 
+      "body": body, 
+      "sku_id": sku_ID
+    })
+    .then((res) => {
+      this.updateCurrentReviews(sku_ID);
+    })
+    .catch((err) => {
+      console.error(err)
+    });
   }
 
   updateCurrentReviews(sku) {
@@ -285,31 +305,44 @@ class FormContainer extends Component {
             first, rate this item
             <br></br>
             <form action="" className="buttonArea" style={{fontFamily: "Helvetica Neue", color: "#333333", fontSize: "14px"}}>
-              <input type="radio" name="rating" value="one"/> 1 Star &nbsp;
-              <input type="radio" name="rating" value="two"/> 2 Stars &nbsp;
-              <input type="radio" name="rating" value="three"/> 3 Stars &nbsp;
-              <input type="radio" name="rating" value="four"/> 4 Stars &nbsp;
-              <input type="radio" name="rating" value="five"/> 5 Stars
+              <input type="radio" name="rating" value="1" id="one"/>1 &nbsp;
+              <input type="radio" name="rating" value="2" id="two"/>2 &nbsp;
+              <input type="radio" name="rating" value="3" id="three"/>3 &nbsp;
+              <input type="radio" name="rating" value="4" id="four"/>4 &nbsp;
+              <input type="radio" name="rating" value="5" id="five"/>5 
             </form>
             <hr></hr>
             write your review
             <br></br>
             <form className="textArea" style={{fontFamily: "Helvetica Neue", color: "#333333", fontSize: "14px"}}>
               <br/>
-              <input type="text" name="firstname" placeholder="your name" style={{fontFamily: "Helvetica Neue", color: "#333333", fontSize: "14px", width: "470px"}}/>
+              <input type="text" name="name" placeholder="your name" style={{fontFamily: "Helvetica Neue", color: "#333333", fontSize: "14px", width: "470px"}} id="name"/>
               <br/>
               <br/>
-              <input type="text" name="lastname" placeholder="title of review" style={{fontFamily: "Helvetica Neue", color: "#333333", fontSize: "14px", width: "470px"}}/>
+              <input type="text" name="review" placeholder="title of review" style={{fontFamily: "Helvetica Neue", color: "#333333", fontSize: "14px", width: "470px"}} id="title"/>
               <br/>
               <br/>
             </form>
-            <textarea name="comment" form="textArea" placeholder="review" style={{fontFamily: "Helvetica Neue", color: "#333333", fontSize: "14px", width: "470px", height: "150px"}}></textarea>
+            <textarea name="comment" form="textArea" placeholder="review" style={{fontFamily: "Helvetica Neue", color: "#333333", fontSize: "14px", width: "470px", height: "150px"}} id="review"></textarea>
           </Modal.Body>
           <Modal.Footer>
             <button style={{fontFamily: "Helvetica Neue", backgroundColor:"#cc0000", color: "white", fontSize:"14px", borderRadius: "4px"}} onClick={this.handleClose}>
               close
             </button>
-            <button style={{fontFamily: "Helvetica Neue", backgroundColor:"#cc0000", color: "white", fontSize:"14px", borderRadius: "4px"}} onClick={this.handleClose}>
+            <button style={{fontFamily: "Helvetica Neue", backgroundColor:"#cc0000", color: "white", fontSize:"14px", borderRadius: "4px"}} onClick={() => {
+              let header = document.getElementById("title").innerHTML;
+              let body = document.getElementById("review").innerHTML;
+              let username = document.getElementById("name").innerHTML;
+              let sku_ID = this.state.sku;
+              let radio = document.getElementById("review").innerHTML;
+              let stars;
+              for (let x = 0; x < radio.length; x++) {
+                if (radio[i].checked) {
+                  stars = Number(radio[i].value);
+                  break;
+                }
+              };
+              this.addReviews(header, stars, username, body, sku_ID); this.handleClose}}>
               submit
             </button>
           </Modal.Footer>
