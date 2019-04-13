@@ -63,15 +63,16 @@ class FormContainer extends Component {
   
   addReviews(header, stars, username, body, sku_ID) {
     console.log('header etc.', header, stars, username, body, sku_ID)
+    let post_date = new Date();
     axios.post('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com:3002/product/reviews', {
       "header": header, 
       "stars": stars, 
-      "post_date": new Date(), 
+      "post_date": post_date, 
       "username":username, 
       "body": body, 
-      "sku_id": sku_ID
+      "sku_ID": sku_ID
     })
-    .then((res) => {
+    .then(() => {
       this.updateCurrentReviews(sku_ID);
     })
     .catch((err) => {
