@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "faker": "^4.1.0"
+    "faker": "^4.1.0",
+    "react-bootstrap": "^1.0.0-beta.8"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",

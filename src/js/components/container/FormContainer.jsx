@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import StarRatings from "react-star-ratings";
 import axios from "axios";
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
 
 class FormContainer extends Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       helpful: [
         {header: '', stars: '', post_date: '', body: '', username: ''},
@@ -28,8 +30,11 @@ class FormContainer extends Component {
       recentRating1: 0, 
       recentRating2: 0,
       recentRating3: 0,
-      recentRating4: 0
+      recentRating4: 0,
+      show: false
     };
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   componentDidMount() {
@@ -39,8 +44,15 @@ class FormContainer extends Component {
     // this.updateCurrentReviews();
   }
 
+  handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow() {
+    this.setState({ show: true });
+  }
+
   updateCurrentReviews(sku) {
-    
     axios.get('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com:3002/product/reviews/recent', {
       params: {
         sku: sku
@@ -156,7 +168,7 @@ class FormContainer extends Component {
                 <div style={{paddingRight: '15px', fontSize: '14px'}}>{this.state.helpful[1] ? this.state.helpful[1].body : null}</div>
               </td></tr>
               <br></br>
-              <tr><td style={{width: '677.5px', padding: '0'}}>
+              <tr><td style={{width: '677.5px', padding: '0', verticalAlign: 'top'}}>
                 <h4 style={{fontSize: '16px', fontWeight: 'bold'}}>{this.state.helpful[2] ? this.state.helpful[2].header : null}</h4> 
                 <div style={{fontSize: '14px'}}>{this.state.helpful[2]? (this.state.helpful[2].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span style={{fontSize: '12px'}}>
@@ -171,7 +183,7 @@ class FormContainer extends Component {
                 <br></br>
                 <div style={{paddingRight: '15px', fontSize: '14px'}}>{this.state.helpful[2] ? this.state.helpful[2].body : null}</div>
               </td>
-              <td style={{width: '677.5px', padding: '0'}}> 
+              <td style={{width: '677.5px', padding: '0', verticalAlign: 'top'}}> 
                 <h4 style={{fontSize: '16px', fontWeight: 'bold'}}>{this.state.helpful[3] ? this.state.helpful[3].header : null}</h4> 
                 <div style={{fontSize: '14px'}}>{this.state.helpful[3]? (this.state.helpful[3].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span style={{fontSize: '12px'}}>
@@ -194,7 +206,7 @@ class FormContainer extends Component {
           <h3 style={{fontSize: '19px', fontWeight: 'bold'}}>Most recent reviews</h3>
           <div>
             <table>
-              <tr><td style={{width: '677.5px', padding: '0'}}>
+              <tr><td style={{width: '677.5px', padding: '0', verticalAlign: 'top'}}>
                 <h4 style={{fontSize: '16px', fontWeight: 'bold'}}>{this.state.recent[0] ? this.state.recent[0].header : null}</h4> 
                 <div style={{fontSize: '14px'}}>{this.state.recent[0]? (this.state.recent[0].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span style={{fontSize: '12px'}}>
@@ -209,7 +221,7 @@ class FormContainer extends Component {
                 <br></br>
                 <div style={{paddingRight: '15px', fontSize: '14px'}}>{this.state.recent[0] ? this.state.recent[0].body : null}</div>
               </td>
-              <td style={{width: '677.5px', padding: '0'}}>
+              <td style={{width: '677.5px', padding: '0', verticalAlign: 'top'}}>
                 <h4 style={{fontSize: '16px', fontWeight: 'bold'}}>{this.state.recent[1] ? this.state.recent[1].header : null}</h4> 
                 <div style={{fontSize: '14px'}}>{this.state.recent[1]? (this.state.recent[1].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span style={{fontSize: '12px'}}>
@@ -225,7 +237,7 @@ class FormContainer extends Component {
                 <div style={{paddingRight: '15px', fontSize: '14px'}}>{this.state.recent[1] ? this.state.recent[1].body : null}</div>
               </td></tr>
               <br></br>
-              <tr><td style={{width: '677.5px', padding: '0'}}>
+              <tr><td style={{width: '677.5px', padding: '0', verticalAlign: 'top'}}>
                 <h4 style={{fontSize: '16px', fontWeight: 'bold'}}>{this.state.recent[2] ? this.state.recent[2].header : null}</h4> 
                 <div style={{fontSize: '14px'}}>{this.state.recent[2]? (this.state.recent[2].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span style={{fontSize: '12px'}}>
@@ -240,7 +252,7 @@ class FormContainer extends Component {
                 <br></br>
                 <div style={{paddingRight: '15px', fontSize: '14px'}}>{this.state.recent[2] ? this.state.recent[2].body : null}</div>
               </td>
-              <td style={{width: '677.5px', padding: '0'}}>
+              <td style={{width: '677.5px', padding: '0', verticalAlign: 'top'}}>
                 <h4 style={{fontSize: '16px', fontWeight: 'bold'}}>{this.state.recent[3] ? this.state.recent[3].header : null}</h4> 
                 <div style={{fontSize: '14px'}}>{this.state.recent[3]? (this.state.recent[3].stars >= 3 ? '(would recommend)' : '(would not recommend)') : null}</div> 
                 <span style={{fontSize: '12px'}}>
@@ -257,6 +269,53 @@ class FormContainer extends Component {
               </td></tr>
             </table>
           </div>
+        </div>
+        <br></br>
+        <div>
+          <center>
+          <>
+           <button style={{fontFamily: "Helvetica Neue", backgroundColor:"#cc0000", color: "white", fontSize:"14px", borderRadius: "4px"}} onClick={this.handleShow}>
+            write a review
+           </button>
+          <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title style={{fontFamily: "Helvetica Neue", color: "#333333", fontSize: "19px", fontWeight: "bold"}}>tell us what you think...</Modal.Title>
+          </Modal.Header>
+          <Modal.Body style={{fontFamily: "Helvetica Neue", color: "#333333", fontWeight: "bold"}}>
+            first, rate this item
+            <br></br>
+            <form action="" className="buttonArea" style={{fontFamily: "Helvetica Neue", color: "#333333", fontSize: "14px"}}>
+              <input type="radio" name="rating" value="one"/> 1 Star &nbsp;
+              <input type="radio" name="rating" value="two"/> 2 Stars &nbsp;
+              <input type="radio" name="rating" value="three"/> 3 Stars &nbsp;
+              <input type="radio" name="rating" value="four"/> 4 Stars &nbsp;
+              <input type="radio" name="rating" value="five"/> 5 Stars
+            </form>
+            <hr></hr>
+            write your review
+            <br></br>
+            <form className="textArea" style={{fontFamily: "Helvetica Neue", color: "#333333", fontSize: "14px"}}>
+              <br/>
+              <input type="text" name="firstname" placeholder="your name" style={{fontFamily: "Helvetica Neue", color: "#333333", fontSize: "14px", width: "470px"}}/>
+              <br/>
+              <br/>
+              <input type="text" name="lastname" placeholder="title of review" style={{fontFamily: "Helvetica Neue", color: "#333333", fontSize: "14px", width: "470px"}}/>
+              <br/>
+              <br/>
+            </form>
+            <textarea name="comment" form="textArea" placeholder="review" style={{fontFamily: "Helvetica Neue", color: "#333333", fontSize: "14px", width: "470px", height: "150px"}}></textarea>
+          </Modal.Body>
+          <Modal.Footer>
+            <button style={{fontFamily: "Helvetica Neue", backgroundColor:"#cc0000", color: "white", fontSize:"14px", borderRadius: "4px"}} onClick={this.handleClose}>
+              close
+            </button>
+            <button style={{fontFamily: "Helvetica Neue", backgroundColor:"#cc0000", color: "white", fontSize:"14px", borderRadius: "4px"}} onClick={this.handleClose}>
+              submit
+            </button>
+          </Modal.Footer>
+          </Modal>
+         </>
+          </center>
         </div>
       </div>
     );
