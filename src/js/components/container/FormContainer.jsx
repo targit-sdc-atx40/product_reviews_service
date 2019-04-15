@@ -46,11 +46,9 @@ class FormContainer extends Component {
   componentDidMount() {
     window.addEventListener('changeItem', (event) => {let currentSku=event.detail; 
     this.updateCurrentReviews(currentSku); 
-    console.log('currentsku', currentSku);
     this.setState({
       sku: currentSku
     })});
-    
   }
 
   handleClose() {
@@ -62,7 +60,6 @@ class FormContainer extends Component {
   }
   
   addReviews(header, stars, username, body, sku_ID) {
-    console.log('header etc.', header, stars, username, body, sku_ID)
     let post_date = new Date();
     axios.post('http://ec2-3-19-71-180.us-east-2.compute.amazonaws.com:3002/product/reviews', {
       "header": header, 
@@ -87,7 +84,6 @@ class FormContainer extends Component {
       }
     })
       .then(res => {
-        console.log(res.data);
         let recentData = res.data;
         this.setState({
           recent: recentData,
@@ -107,7 +103,6 @@ class FormContainer extends Component {
       }
     })
       .then(res => {
-        console.log(res.data);
         let helpfulData = res.data;
         this.setState({
           helpful: helpfulData, 
@@ -127,7 +122,6 @@ class FormContainer extends Component {
         }  
       })
       .then(res => {
-        console.log(res.data);
         let allData = res.data;
         let num = 0;
         for (let x = 0; x < allData.length; x++) {
@@ -138,7 +132,6 @@ class FormContainer extends Component {
           totalReviews: allData,
           totalRating: num
         }) 
-        console.log('here', num);
       })
       .catch(err => {
         console.error(err);
@@ -146,32 +139,26 @@ class FormContainer extends Component {
   }
   
   radioButtonChange1() {
-   
     this.setState({radioButtonValue: 1});
   }
 
   radioButtonChange2() {
-   
     this.setState({radioButtonValue: 2});
   }
 
   radioButtonChange3() {
-    
     this.setState({radioButtonValue: 3});
   }
 
   radioButtonChange4() {
-    
     this.setState({radioButtonValue: 4});
   }
 
   radioButtonChange5() {
-    
     this.setState({radioButtonValue: 5});
   }
 
   render() {
-    // window.reviews = this;
     return (
       <div style={{fontFamily: "Helvetica Neue", color: "#333333", marginLeft: '20px', marginRight: '20px', boxSizing: 'border-box', textSizeAdjust: '100%'}}>
       <br></br>
@@ -200,7 +187,7 @@ class FormContainer extends Component {
                   starSpacing="0px"
                   starRatedColor="gold"
                 /> 
-                
+
                 {this.state.helpful[0] ? this.state.helpful[0].username : null} - {this.state.helpful[0] ? this.state.helpful[0].post_date.slice(0, 10) : null}
                 </span>
                 <br></br>
@@ -369,13 +356,6 @@ class FormContainer extends Component {
               let username = this.refs.name.value;
               let sku_ID = this.state.sku;
               let stars = this.state.radioButtonValue;
-              // let stars;
-              // for (let x = 0; x < radio.length; x++) {
-              //   if (radio[x].checked) {
-              //     stars = Number(radio[x].value);
-              //     break;
-              //   }
-              // };
               this.addReviews(header, stars, username, body, sku_ID); this.handleClose()}}>
               submit
             </button>
