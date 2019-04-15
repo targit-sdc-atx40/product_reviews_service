@@ -1,10 +1,11 @@
 const { Client } = require('pg');
+require('dotenv').config();
 const client = new Client({
-  host: 'product-info.cbxobgkygcxr.us-east-2.rds.amazonaws.com',
+  host: process.env.DB_HOST,
   port: 5432,
-  user: 'dvcastillo37',
-  database: 'product_info',
-  password: 'password'
+  user: process.env.DB_USER,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PW
 })
 
 client.connect((err) => {
