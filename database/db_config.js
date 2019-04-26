@@ -56,4 +56,4 @@ const addReviews = (header, stars, post_date, username, body, sku_ID, callback) 
   })
 }
 
-module.exports = {client, recentReviews, helpfulReviews, allReviews, addReviews};
+module.exports = { client, recentReviews, helpfulReviews, allReviews, addReviews };

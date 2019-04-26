@@ -1,0 +1,311 @@
+2019-04-17 14:40:08.952 CDT [20997] LOG:  listening on IPv6 address "::1", port 5432
+2019-04-17 14:40:08.953 CDT [20997] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-04-17 14:40:08.953 CDT [20997] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-04-17 14:40:08.965 CDT [20998] LOG:  database system was shut down at 2019-04-17 14:39:14 CDT
+2019-04-17 14:40:08.968 CDT [20997] LOG:  database system is ready to accept connections
+2019-04-17 14:48:52.068 CDT [21056] FATAL:  database "jonathonlopez" does not exist
+2019-04-17 14:51:16.492 CDT [21068] FATAL:  database "review" does not exist
+2019-04-17 14:51:29.420 CDT [21070] ERROR:  cannot drop the currently open database
+2019-04-17 14:51:29.420 CDT [21070] STATEMENT:  DROP DATABASE IF EXISTS reviews;
+2019-04-17 14:51:29.421 CDT [21070] ERROR:  database "reviews" already exists
+2019-04-17 14:51:29.421 CDT [21070] STATEMENT:  CREATE DATABASE reviews;
+2019-04-17 14:51:29.421 CDT [21070] ERROR:  syntax error at or near "USE" at character 1
+2019-04-17 14:51:29.421 CDT [21070] STATEMENT:  USE reviews;
+2019-04-17 14:51:44.111 CDT [21075] ERROR:  relation "product_reviews" already exists
+2019-04-17 14:51:44.111 CDT [21075] STATEMENT:  CREATE TABLE product_reviews (
+	    sku SERIAL PRIMARY KEY,
+	    title VARCHAR(100) NOT NULL,
+	    photo_url VARCHAR(200) NOT NULL,
+	    price MONEY NOT NULL,
+	    description TEXT NOT NULL
+	);
+2019-04-17 14:52:38.058 CDT [21090] FATAL:  role "postgres" does not exist
+2019-04-17 14:59:23.497 CDT [21168] ERROR:  syntax error at or near ":" at character 90
+2019-04-17 14:59:23.497 CDT [21168] STATEMENT:  INSERT INTO product_reviews (title, photo_url, price, description) VALUES ('test', `https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg`, 4.20, 'more trest');
+2019-04-17 16:57:43.185 CDT [22513] ERROR:  could not open file "tonsOfData.csv" for reading: No such file or directory
+2019-04-17 16:57:43.185 CDT [22513] HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+2019-04-17 16:57:43.185 CDT [22513] STATEMENT:  COPY product_reviews(title, photo_url, price, description) FROM 'tonsOfData.csv' DELIMITER ',' CSV HEADER;
+2019-04-17 17:02:13.770 CDT [22513] ERROR:  could not open file "C:/Users/jonathonlopez/Desktop/product_reviews_service/tonsOfData.csv" for reading: No such file or directory
+2019-04-17 17:02:13.770 CDT [22513] HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+2019-04-17 17:02:13.770 CDT [22513] STATEMENT:  COPY product_reviews(title, photo_url, price, description) FROM 'C:/Users/jonathonlopez/Desktop/product_reviews_service/tonsOfData.csv' DELIMITER ',' CSV HEADER;
+2019-04-17 17:05:26.634 CDT [22513] ERROR:  could not open file "C:\Users\jonathonlopez\Desktop\product_reviews_service\tonsOfData.csv" for reading: No such file or directory
+2019-04-17 17:05:26.634 CDT [22513] HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+2019-04-17 17:05:26.634 CDT [22513] STATEMENT:  COPY product_reviews(title, photo_url, price, description) FROM 'C:\Users\jonathonlopez\Desktop\product_reviews_service\tonsOfData.csv' DELIMITER ',' CSV HEADER;
+2019-04-17 17:11:04.291 CDT [22513] ERROR:  syntax error at or near "tonsOfData" at character 27
+2019-04-17 17:11:04.291 CDT [22513] STATEMENT:  COPY product_reviews FROM tonsOfData.csv;
+2019-04-17 17:11:17.913 CDT [22513] ERROR:  syntax error at or near "/" at character 27
+2019-04-17 17:11:17.913 CDT [22513] STATEMENT:  COPY product_reviews FROM /tonsOfData.csv;
+2019-04-17 17:11:39.802 CDT [22513] ERROR:  syntax error at or near "." at character 27
+2019-04-17 17:11:39.802 CDT [22513] STATEMENT:  COPY product_reviews FROM ./tonsOfData.csv;
+2019-04-17 17:12:14.972 CDT [22513] ERROR:  syntax error at or near "product_reviews_service" at character 27
+2019-04-17 17:12:14.972 CDT [22513] STATEMENT:  COPY product_reviews FROM product_reviews_service/tonsOfData.csv;
+2019-04-17 17:12:42.401 CDT [22513] ERROR:  could not open file "tonsOfData.csv" for reading: No such file or directory
+2019-04-17 17:12:42.401 CDT [22513] HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+2019-04-17 17:12:42.401 CDT [22513] STATEMENT:  COPY product_reviews FROM 'tonsOfData.csv';
+2019-04-17 17:46:02.525 CDT [22513] ERROR:  could not open file "tonsOfData.csv" for reading: No such file or directory
+2019-04-17 17:46:02.525 CDT [22513] HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+2019-04-17 17:46:02.525 CDT [22513] STATEMENT:  COPY product_reviews FROM 'tonsOfData.csv';
+2019-04-17 17:46:06.569 CDT [22513] ERROR:  syntax error at or near "." at character 27
+2019-04-17 17:46:06.569 CDT [22513] STATEMENT:  COPY product_reviews FROM ./tonsOfData.csv;
+2019-04-17 17:48:42.150 CDT [22513] ERROR:  syntax error at or near ".." at character 27
+2019-04-17 17:48:42.150 CDT [22513] STATEMENT:  COPY product_reviews FROM ../tonsOfData.csv;
+2019-04-17 17:53:01.248 CDT [22513] ERROR:  could not open file "Users\jonathonlopez\Desktop\product_reviews_service\tonsOfData.csv" for reading: No such file or directory
+2019-04-17 17:53:01.248 CDT [22513] HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+2019-04-17 17:53:01.248 CDT [22513] STATEMENT:  COPY product_reviews(title, photo_url, price, description) FROM 'Users\jonathonlopez\Desktop\product_reviews_service\tonsOfData.csv' DELIMITER ',' CSV HEADER;
+2019-04-17 17:53:35.146 CDT [22513] ERROR:  syntax error at or near "/" at character 1
+2019-04-17 17:53:35.146 CDT [22513] STATEMENT:  /copy product_reviews from tonsOfData.csv
+	;
+2019-04-17 17:53:59.197 CDT [22513] ERROR:  invalid input syntax for integer: "quae,http://lorempixel.com/640/480/animals,438.00,sed sequi quidem "
+2019-04-17 17:53:59.197 CDT [22513] CONTEXT:  COPY product_reviews, line 1, column sku: "quae,http://lorempixel.com/640/480/animals,438.00,sed sequi quidem "
+2019-04-17 17:53:59.197 CDT [22513] STATEMENT:  COPY  product_reviews FROM STDIN ;
+2019-04-17 17:56:30.536 CDT [22513] ERROR:  missing data for column "photo_url"
+2019-04-17 17:56:30.536 CDT [22513] CONTEXT:  COPY product_reviews, line 1: "quae,http://lorempixel.com/640/480/animals,438.00,sed sequi quidem "
+2019-04-17 17:56:30.536 CDT [22513] STATEMENT:  COPY  product_reviews ( title, photo_url, price, description ) FROM STDIN ;
+2019-04-17 17:58:44.628 CDT [22513] ERROR:  missing data for column "photo_url"
+2019-04-17 17:58:44.628 CDT [22513] CONTEXT:  COPY product_reviews, line 1: "a,"http://lorempixel.com/640/480/animals",473.00,et tempora a "
+2019-04-17 17:58:44.628 CDT [22513] STATEMENT:  COPY  product_reviews ( title, photo_url, price, description ) FROM STDIN ;
+2019-04-17 19:24:59.140 CDT [22513] ERROR:  missing data for column "photo_url"
+2019-04-17 19:24:59.140 CDT [22513] CONTEXT:  COPY product_reviews, line 1: ""assumenda","http://lorempixel.com/640/480/animals",824.00,"ea quae harum" "
+2019-04-17 19:24:59.140 CDT [22513] STATEMENT:  COPY  product_reviews ( title, photo_url, price, description ) FROM STDIN ;
+2019-04-17 19:25:55.511 CDT [22513] ERROR:  column "id" does not exist at character 35
+2019-04-17 19:25:55.511 CDT [22513] STATEMENT:  delete from product_reviews where id=1;
+2019-04-17 19:28:50.536 CDT [22513] ERROR:  invalid input syntax for integer: "1,"culpa","http://lorempixel.com/640/480/animals",368.00,"et sapiente distinctio" "
+2019-04-17 19:28:50.536 CDT [22513] CONTEXT:  COPY product_reviews, line 1, column sku: "1,"culpa","http://lorempixel.com/640/480/animals",368.00,"et sapiente distinctio" "
+2019-04-17 19:28:50.536 CDT [22513] STATEMENT:  COPY  product_reviews ( sku, title, photo_url, price, description ) FROM STDIN ;
+2019-04-17 19:47:38.211 CDT [23921] ERROR:  invalid input syntax for integer: "1,"Fantastic Soft Soap","http://lorempixel.com/640/480/animals",654.00,"quisquam possimus architecto" "
+2019-04-17 19:47:38.211 CDT [23921] CONTEXT:  COPY product_reviews, line 1, column sku: "1,"Fantastic Soft Soap","http://lorempixel.com/640/480/animals",654.00,"quisquam possimus architecto..."
+2019-04-17 19:47:38.211 CDT [23921] STATEMENT:  COPY  product_reviews ( sku, title, photo_url, price, description ) FROM STDIN ;
+2019-04-18 12:32:39.190 CDT [25085] ERROR:  syntax error at or near "tonsOfData" at character 71
+2019-04-18 12:32:39.190 CDT [25085] STATEMENT:  copy product_reviews (sku, title, photo_url, price, description) from tonsOfData.csv;
+2019-04-18 12:32:53.461 CDT [25085] ERROR:  syntax error at or near "tonsOfData" at character 71
+2019-04-18 12:32:53.461 CDT [25085] STATEMENT:  copy product_reviews (sku, title, photo_url, price, description) from tonsOfData.csv with (format csv);
+2019-04-18 12:33:21.202 CDT [25085] ERROR:  syntax error at or near "tonsOfData" at character 27
+2019-04-18 12:33:21.202 CDT [25085] STATEMENT:  copy product_reviews from tonsOfData.csv with (format csv);
+2019-04-18 12:34:08.143 CDT [25085] ERROR:  syntax error at or near "/" at character 27
+2019-04-18 12:34:08.143 CDT [25085] STATEMENT:  copy product_reviews from /Users/jonathonlopez/Desktop/product_reviews_service/tonsOfData.csv with (format csv);
+2019-04-18 12:35:53.851 CDT [25085] ERROR:  syntax error at or near ""/Users/jonathonlopez/Desktop/product_reviews_service/tonsOfData.csv"" at character 27
+2019-04-18 12:35:53.851 CDT [25085] STATEMENT:  copy product_reviews from "/Users/jonathonlopez/Desktop/product_reviews_service/tonsOfData.csv" with (format csv);
+2019-04-18 12:36:23.870 CDT [25085] ERROR:  invalid input syntax for integer: "1,"Generic Concrete Car","http://lorempixel.com/640/480/animals",997.00,"ut recusandae assumenda" "
+2019-04-18 12:36:23.870 CDT [25085] CONTEXT:  COPY product_reviews, line 1, column sku: "1,"Generic Concrete Car","http://lorempixel.com/640/480/animals",997.00,"ut recusandae assumenda" "
+2019-04-18 12:36:23.870 CDT [25085] STATEMENT:  COPY  product_reviews ( sku, title, photo_url, price, description ) FROM STDIN ;
+2019-04-18 15:17:16.525 CDT [26446] ERROR:  invalid input syntax for integer: "1,"Sleek Soft Gloves","http://lorempixel.com/640/480/animals",932.00,"porro ab facere" "
+2019-04-18 15:17:16.525 CDT [26446] CONTEXT:  COPY product_reviews, line 1, column sku: "1,"Sleek Soft Gloves","http://lorempixel.com/640/480/animals",932.00,"porro ab facere" "
+2019-04-18 15:17:16.525 CDT [26446] STATEMENT:  COPY  product_reviews ( sku, title, photo_url, price, description ) FROM STDIN ;
+2019-04-18 15:19:38.052 CDT [26446] ERROR:  invalid input syntax for integer: "sku,title,photo_url,price,description"
+2019-04-18 15:19:38.052 CDT [26446] CONTEXT:  COPY product_reviews, line 1, column sku: "sku,title,photo_url,price,description"
+2019-04-18 15:19:38.052 CDT [26446] STATEMENT:  COPY  product_reviews ( sku, title, photo_url, price, description ) FROM STDIN ;
+2019-04-18 15:21:49.808 CDT [26446] ERROR:  syntax error at or near "","" at character 90
+2019-04-18 15:21:49.808 CDT [26446] STATEMENT:  COPY  product_reviews ( sku, title, photo_url, price, description ) FROM STDIN delimiter "," csv header;
+2019-04-18 15:22:46.574 CDT [20999] LOG:  checkpoints are occurring too frequently (18 seconds apart)
+2019-04-18 15:22:46.574 CDT [20999] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2019-04-18 15:24:27.331 CDT [26552] FATAL:  database "jonathonlopez" does not exist
+2019-04-18 15:25:09.589 CDT [26556] ERROR:  canceling statement due to user request
+2019-04-18 15:25:09.589 CDT [26556] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:09.596 CDT [26566] FATAL:  terminating connection due to administrator command
+2019-04-18 15:25:09.596 CDT [26566] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:09.596 CDT [26567] FATAL:  terminating connection due to administrator command
+2019-04-18 15:25:09.596 CDT [26567] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:09.603 CDT [20997] LOG:  background worker "parallel worker" (PID 26567) exited with exit code 1
+2019-04-18 15:25:09.603 CDT [20997] LOG:  background worker "parallel worker" (PID 26566) exited with exit code 1
+2019-04-18 15:25:09.814 CDT [26556] ERROR:  canceling statement due to user request
+2019-04-18 15:25:09.814 CDT [26556] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:09.814 CDT [26569] FATAL:  terminating connection due to administrator command
+2019-04-18 15:25:09.814 CDT [26569] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:09.815 CDT [20997] LOG:  background worker "parallel worker" (PID 26569) exited with exit code 1
+2019-04-18 15:25:09.820 CDT [26570] FATAL:  terminating connection due to administrator command
+2019-04-18 15:25:09.820 CDT [26570] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:09.821 CDT [20997] LOG:  background worker "parallel worker" (PID 26570) exited with exit code 1
+2019-04-18 15:25:13.632 CDT [26556] ERROR:  canceling statement due to user request
+2019-04-18 15:25:13.632 CDT [26556] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:13.632 CDT [26573] FATAL:  terminating connection due to administrator command
+2019-04-18 15:25:13.632 CDT [26573] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:13.632 CDT [26572] FATAL:  terminating connection due to administrator command
+2019-04-18 15:25:13.632 CDT [26572] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:13.633 CDT [20997] LOG:  background worker "parallel worker" (PID 26572) exited with exit code 1
+2019-04-18 15:25:13.633 CDT [20997] LOG:  background worker "parallel worker" (PID 26573) exited with exit code 1
+2019-04-18 15:25:13.872 CDT [26556] ERROR:  canceling statement due to user request
+2019-04-18 15:25:13.872 CDT [26556] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:13.872 CDT [26578] FATAL:  terminating connection due to administrator command
+2019-04-18 15:25:13.872 CDT [26578] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:13.872 CDT [26577] FATAL:  terminating connection due to administrator command
+2019-04-18 15:25:13.872 CDT [26577] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:13.873 CDT [20997] LOG:  background worker "parallel worker" (PID 26577) exited with exit code 1
+2019-04-18 15:25:13.873 CDT [20997] LOG:  background worker "parallel worker" (PID 26578) exited with exit code 1
+2019-04-18 15:25:14.072 CDT [26556] ERROR:  canceling statement due to user request
+2019-04-18 15:25:14.072 CDT [26556] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:14.073 CDT [26580] FATAL:  terminating connection due to administrator command
+2019-04-18 15:25:14.073 CDT [26580] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:14.073 CDT [26581] FATAL:  terminating connection due to administrator command
+2019-04-18 15:25:14.073 CDT [26581] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:14.074 CDT [20997] LOG:  background worker "parallel worker" (PID 26580) exited with exit code 1
+2019-04-18 15:25:14.074 CDT [20997] LOG:  background worker "parallel worker" (PID 26581) exited with exit code 1
+2019-04-18 15:25:16.012 CDT [26556] ERROR:  canceling statement due to user request
+2019-04-18 15:25:16.012 CDT [26556] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:16.019 CDT [26583] FATAL:  terminating connection due to administrator command
+2019-04-18 15:25:16.019 CDT [26583] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:16.019 CDT [26584] FATAL:  terminating connection due to administrator command
+2019-04-18 15:25:16.019 CDT [26584] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:25:16.021 CDT [20997] LOG:  background worker "parallel worker" (PID 26583) exited with exit code 1
+2019-04-18 15:25:16.021 CDT [20997] LOG:  background worker "parallel worker" (PID 26584) exited with exit code 1
+2019-04-18 15:27:19.760 CDT [26556] ERROR:  canceling statement due to user request
+2019-04-18 15:27:19.760 CDT [26556] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:27:19.760 CDT [26598] FATAL:  terminating connection due to administrator command
+2019-04-18 15:27:19.760 CDT [26598] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:27:19.760 CDT [26597] FATAL:  terminating connection due to administrator command
+2019-04-18 15:27:19.760 CDT [26597] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 15:27:19.762 CDT [20997] LOG:  background worker "parallel worker" (PID 26598) exited with exit code 1
+2019-04-18 15:27:19.762 CDT [20997] LOG:  background worker "parallel worker" (PID 26597) exited with exit code 1
+2019-04-18 16:42:26.613 CDT [26997] ERROR:  duplicate key value violates unique constraint "product_reviews_pkey"
+2019-04-18 16:42:26.613 CDT [26997] DETAIL:  Key (sku)=(1) already exists.
+2019-04-18 16:42:26.613 CDT [26997] CONTEXT:  COPY product_reviews, line 2
+2019-04-18 16:42:26.613 CDT [26997] STATEMENT:  COPY  product_reviews ( sku, title, photo_url, price, description ) FROM STDIN delimiter ',' csv header;
+2019-04-18 16:43:49.627 CDT [26997] ERROR:  duplicate key value violates unique constraint "product_reviews_pkey"
+2019-04-18 16:43:49.627 CDT [26997] DETAIL:  Key (sku)=(1) already exists.
+2019-04-18 16:43:49.627 CDT [26997] CONTEXT:  COPY product_reviews, line 2
+2019-04-18 16:43:49.627 CDT [26997] STATEMENT:  COPY  product_reviews ( sku, title, photo_url, price, description ) FROM STDIN delimiter ',' csv header;
+2019-04-18 16:44:09.164 CDT [26879] ERROR:  cannot drop index product_reviews_pkey because constraint product_reviews_pkey on table product_reviews requires it
+2019-04-18 16:44:09.164 CDT [26879] HINT:  You can drop constraint product_reviews_pkey on table product_reviews instead.
+2019-04-18 16:44:09.164 CDT [26879] STATEMENT:  DROP INDEX "public"."product_reviews_pkey";
+	
+2019-04-18 16:44:36.299 CDT [26879] ERROR:  cannot drop index product_reviews_pkey because constraint product_reviews_pkey on table product_reviews requires it
+2019-04-18 16:44:36.299 CDT [26879] HINT:  You can drop constraint product_reviews_pkey on table product_reviews instead.
+2019-04-18 16:44:36.299 CDT [26879] STATEMENT:  DROP INDEX "public"."product_reviews_pkey";
+	ALTER TABLE "public"."product_reviews" ALTER COLUMN "sku" SET DEFAULT nextval(''::regclass);
+	
+2019-04-18 16:44:47.644 CDT [26997] ERROR:  duplicate key value violates unique constraint "product_reviews_pkey"
+2019-04-18 16:44:47.644 CDT [26997] DETAIL:  Key (sku)=(1) already exists.
+2019-04-18 16:44:47.644 CDT [26997] CONTEXT:  COPY product_reviews, line 2
+2019-04-18 16:44:47.644 CDT [26997] STATEMENT:  COPY  product_reviews ( sku, title, photo_url, price, description ) FROM STDIN delimiter ',' csv header;
+2019-04-18 16:48:56.197 CDT [26879] ERROR:  cannot drop index product_reviews_pkey because constraint product_reviews_pkey on table product_reviews requires it
+2019-04-18 16:48:56.197 CDT [26879] HINT:  You can drop constraint product_reviews_pkey on table product_reviews instead.
+2019-04-18 16:48:56.197 CDT [26879] STATEMENT:  DROP INDEX "public"."product_reviews_pkey";
+	ALTER TABLE "public"."product_reviews"
+	  ALTER COLUMN "sku" TYPE serial,
+	  ALTER COLUMN "sku" SET DEFAULT nextval(''::regclass);
+	
+2019-04-18 16:49:02.902 CDT [26879] ERROR:  type "serial" does not exist
+2019-04-18 16:49:02.902 CDT [26879] STATEMENT:  ALTER TABLE "public"."product_reviews"
+	  ALTER COLUMN "sku" TYPE serial,
+	  ALTER COLUMN "sku" SET DEFAULT nextval(''::regclass);
+	
+2019-04-18 16:49:27.668 CDT [26879] ERROR:  invalid name syntax
+2019-04-18 16:49:27.668 CDT [26879] STATEMENT:  ALTER INDEX "public"."product_reviews_pkey" RENAME TO "sku";
+	ALTER TABLE "public"."product_reviews" ALTER COLUMN "sku" SET DEFAULT nextval(''::regclass);
+	
+2019-04-18 16:49:33.722 CDT [26879] ERROR:  invalid name syntax
+2019-04-18 16:49:33.722 CDT [26879] STATEMENT:  ALTER INDEX "public"."product_reviews_pkey" RENAME TO "sku";
+	ALTER TABLE "public"."product_reviews" ALTER COLUMN "sku" SET DEFAULT nextval(''::regclass);
+	
+2019-04-18 16:49:56.899 CDT [26997] ERROR:  duplicate key value violates unique constraint "sku"
+2019-04-18 16:49:56.899 CDT [26997] DETAIL:  Key (sku)=(1) already exists.
+2019-04-18 16:49:56.899 CDT [26997] CONTEXT:  COPY product_reviews, line 2
+2019-04-18 16:49:56.899 CDT [26997] STATEMENT:  COPY  product_reviews ( sku, title, photo_url, price, description ) FROM STDIN delimiter ',' csv header;
+2019-04-18 16:50:12.548 CDT [26879] ERROR:  invalid name syntax
+2019-04-18 16:50:12.548 CDT [26879] STATEMENT:  ALTER TABLE "public"."product_reviews" ALTER COLUMN "sku" SET DEFAULT nextval(''::regclass);
+	
+2019-04-18 16:50:24.593 CDT [26997] ERROR:  duplicate key value violates unique constraint "sku"
+2019-04-18 16:50:24.593 CDT [26997] DETAIL:  Key (sku)=(1) already exists.
+2019-04-18 16:50:24.593 CDT [26997] CONTEXT:  COPY product_reviews, line 2
+2019-04-18 16:50:24.593 CDT [26997] STATEMENT:  COPY  product_reviews ( sku, title, photo_url, price, description ) FROM STDIN delimiter ',' csv header;
+2019-04-18 16:52:49.963 CDT [26997] ERROR:  relation "reviews" does not exist at character 13
+2019-04-18 16:52:49.963 CDT [26997] STATEMENT:  delete from reviews where sku=1;
+2019-04-18 16:54:04.028 CDT [20999] LOG:  checkpoints are occurring too frequently (15 seconds apart)
+2019-04-18 16:54:04.028 CDT [20999] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2019-04-18 16:54:35.371 CDT [26879] ERROR:  canceling statement due to user request
+2019-04-18 16:54:35.371 CDT [26879] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 16:54:35.380 CDT [27114] FATAL:  terminating connection due to administrator command
+2019-04-18 16:54:35.380 CDT [27114] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 16:54:35.380 CDT [27115] FATAL:  terminating connection due to administrator command
+2019-04-18 16:54:35.380 CDT [27115] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 16:54:35.382 CDT [20997] LOG:  background worker "parallel worker" (PID 27115) exited with exit code 1
+2019-04-18 16:54:35.382 CDT [20997] LOG:  background worker "parallel worker" (PID 27114) exited with exit code 1
+2019-04-18 16:54:36.077 CDT [26879] ERROR:  canceling statement due to user request
+2019-04-18 16:54:36.077 CDT [26879] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 16:54:36.077 CDT [27118] FATAL:  terminating connection due to administrator command
+2019-04-18 16:54:36.077 CDT [27118] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 16:54:36.077 CDT [27117] FATAL:  terminating connection due to administrator command
+2019-04-18 16:54:36.077 CDT [27117] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 16:54:36.105 CDT [20997] LOG:  background worker "parallel worker" (PID 27118) exited with exit code 1
+2019-04-18 16:54:36.105 CDT [20997] LOG:  background worker "parallel worker" (PID 27117) exited with exit code 1
+2019-04-18 16:54:36.860 CDT [26879] ERROR:  canceling statement due to user request
+2019-04-18 16:54:36.860 CDT [26879] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 16:54:36.861 CDT [27121] FATAL:  terminating connection due to administrator command
+2019-04-18 16:54:36.861 CDT [27121] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 16:54:36.861 CDT [27120] FATAL:  terminating connection due to administrator command
+2019-04-18 16:54:36.861 CDT [27120] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 16:54:36.905 CDT [20997] LOG:  background worker "parallel worker" (PID 27121) exited with exit code 1
+2019-04-18 16:54:36.906 CDT [20997] LOG:  background worker "parallel worker" (PID 27120) exited with exit code 1
+2019-04-18 16:55:34.750 CDT [26997] ERROR:  relation "reviews" does not exist at character 15
+2019-04-18 16:55:34.750 CDT [26997] STATEMENT:  select * from reviews where sku=891230;
+2019-04-18 17:13:36.982 CDT [26879] ERROR:  canceling statement due to user request
+2019-04-18 17:13:36.982 CDT [26879] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 17:13:36.982 CDT [27345] FATAL:  terminating connection due to administrator command
+2019-04-18 17:13:36.982 CDT [27345] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 17:13:36.983 CDT [20997] LOG:  background worker "parallel worker" (PID 27345) exited with exit code 1
+2019-04-18 17:13:36.987 CDT [27346] FATAL:  terminating connection due to administrator command
+2019-04-18 17:13:36.987 CDT [27346] STATEMENT:  SELECT COUNT(1) FROM "public"."product_reviews" 
+2019-04-18 17:13:36.991 CDT [20997] LOG:  background worker "parallel worker" (PID 27346) exited with exit code 1
+2019-04-18 20:04:56.072 CDT [28282] ERROR:  column "id" does not exist at character 37
+2019-04-18 20:04:56.072 CDT [28282] STATEMENT:  select * from product_reviews where id > 0;
+2019-04-18 20:07:07.903 CDT [28282] ERROR:  column "id" does not exist at character 37
+2019-04-18 20:07:07.903 CDT [28282] STATEMENT:  select * from product_reviews where id=9;
+2019-04-18 20:08:47.313 CDT [28282] ERROR:  relation "indexes" does not exist at character 15
+2019-04-18 20:08:47.313 CDT [28282] STATEMENT:  select * from indexes where sku > 0;
+2019-04-18 20:09:29.565 CDT [28282] ERROR:  "product_reviews_pkey" is an index at character 15
+2019-04-18 20:09:29.565 CDT [28282] STATEMENT:  select * from product_reviews_pkey where sku > 0;
+2019-04-19 14:41:08.111 CDT [28282] ERROR:  column "Tasty Metal Bike" does not exist at character 43
+2019-04-19 14:41:08.111 CDT [28282] STATEMENT:  select * from product_reviews where title="Tasty Metal Bike";
+2019-04-19 14:41:31.288 CDT [28282] ERROR:  column "Tasty Metal Bike" does not exist at character 43
+2019-04-19 14:41:31.288 CDT [28282] STATEMENT:  select * from product_reviews where title="Tasty Metal Bike";
+2019-04-19 14:42:34.816 CDT [28282] ERROR:  operator does not exist: money = numeric at character 42
+2019-04-19 14:42:34.816 CDT [28282] HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+2019-04-19 14:42:34.816 CDT [28282] STATEMENT:  select * from product_reviews where price=64.00;
+2019-04-19 14:42:41.570 CDT [28282] ERROR:  operator does not exist: money = integer at character 42
+2019-04-19 14:42:41.570 CDT [28282] HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+2019-04-19 14:42:41.570 CDT [28282] STATEMENT:  select * from product_reviews where price=64;
+2019-04-19 14:43:21.351 CDT [28282] ERROR:  syntax error at or near ".00" at character 46
+2019-04-19 14:43:21.351 CDT [28282] STATEMENT:  select * from product_reviews where price=$64.00;
+2019-04-19 14:43:36.391 CDT [28282] ERROR:  there is no parameter $64 at character 43
+2019-04-19 14:43:36.391 CDT [28282] STATEMENT:  select * from product_reviews where price=$64;
+2019-04-19 14:44:11.454 CDT [28282] ERROR:  column "Rustic Cotton Hat" does not exist at character 43
+2019-04-19 14:44:11.454 CDT [28282] STATEMENT:  select * from product_reviews where title="Rustic Cotton Hat";
+2019-04-19 14:48:31.681 CDT [28282] ERROR:  canceling statement due to user request
+2019-04-19 14:48:31.681 CDT [28282] STATEMENT:  create index product_reviews_title on product_reviews (title);
+2019-04-19 14:48:31.686 CDT [30008] FATAL:  terminating connection due to administrator command
+2019-04-19 14:48:31.686 CDT [30008] STATEMENT:  create index product_reviews_title on product_reviews (title);
+2019-04-19 14:48:31.699 CDT [20997] LOG:  background worker "parallel worker" (PID 30008) exited with exit code 1
+2019-04-19 14:48:36.978 CDT [28282] ERROR:  syntax error at or near ")" at character 1
+2019-04-19 14:48:36.978 CDT [28282] STATEMENT:  )
+	create index product_reviews_title on product_reviews (title);
+2019-04-19 14:49:43.638 CDT [28282] ERROR:  canceling statement due to user request
+2019-04-19 14:49:43.638 CDT [28282] STATEMENT:  create index product_reviews_title on product_reviews (title);
+2019-04-19 14:49:43.639 CDT [30025] FATAL:  terminating connection due to administrator command
+2019-04-19 14:49:43.639 CDT [30025] STATEMENT:  create index product_reviews_title on product_reviews (title);
+2019-04-19 14:49:43.650 CDT [20997] LOG:  background worker "parallel worker" (PID 30025) exited with exit code 1
+2019-04-20 10:21:44.531 CDT [33017] ERROR:  relation "products_reviews" does not exist
+2019-04-20 10:21:44.531 CDT [33017] STATEMENT:  CREATE TABLE IF NOT EXISTS reviews (
+	  review_num SERIAL PRIMARY KEY,
+	  header VARCHAR(100) NOT NULL, 
+	  stars INTEGER NOT NULL, 
+	  post_date TIMESTAMP NOT NULL, 
+	  username VARCHAR(50) NOT NULL, 
+	  body VARCHAR(500) NOT NULL, 
+	  sku_ID INTEGER REFERENCES products_reviews(sku)
+	);
+2019-04-20 12:12:31.171 CDT [34401] ERROR:  out of memory
+2019-04-20 12:12:31.171 CDT [34401] DETAIL:  Cannot enlarge string buffer containing 1073741808 bytes by 8191 more bytes.
+2019-04-20 12:12:31.171 CDT [34401] CONTEXT:  COPY reviews, line 1
+2019-04-20 12:12:31.171 CDT [34401] STATEMENT:  COPY  reviews ( review_num, header, stars, post_date, username, body, sku_ID ) FROM STDIN delimiter ',' csv header;
+2019-04-20 12:13:05.833 CDT [35014] FATAL:  database "revies" does not exist
+2019-04-20 12:13:23.860 CDT [35020] ERROR:  out of memory
+2019-04-20 12:13:23.860 CDT [35020] DETAIL:  Cannot enlarge string buffer containing 1073741808 bytes by 8191 more bytes.
+2019-04-20 12:13:23.860 CDT [35020] CONTEXT:  COPY reviews, line 1
+2019-04-20 12:13:23.860 CDT [35020] STATEMENT:  COPY  reviews ( review_num, header, stars, post_date, username, body, sku_ID ) FROM STDIN delimiter ',' csv header;
+2019-04-24 11:50:33.751 CDT [48189] ERROR:  canceling statement due to user request
+2019-04-24 11:50:33.751 CDT [48189] STATEMENT:  select * from product_reviews
+	;
+2019-04-24 11:51:16.276 CDT [67804] ERROR:  canceling statement due to user request
+2019-04-24 11:51:16.276 CDT [67804] STATEMENT:  select * from product_reviews;
+2019-04-24 12:06:36.542 CDT [67905] ERROR:  syntax error at or near "select" at character 51
+2019-04-24 12:06:36.542 CDT [67905] STATEMENT:  select * from product_reviews where sku > 9000000
+	select * from product_reviews where sku > 9000000;
